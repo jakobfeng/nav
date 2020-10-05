@@ -4,10 +4,10 @@ from pathlib import Path
 from csv import reader
 import matplotlib.pyplot as plt
 
-path = "..\\data\\input\\"
+path = "..//data//input//"
 paths = sorted(Path(path).iterdir(), key=os.path.getmtime)  # list of paths to all datasets
-out_path = "..\\data\\output\\"
-plot_path = "..\\plots\\"
+out_path = "..//data//output//"
+plot_path = "..//plots//"
 
 
 def view_ads_count_from_to(from_year, to_year):
@@ -15,7 +15,7 @@ def view_ads_count_from_to(from_year, to_year):
     for path in paths:
         number_of_ads = 0
         number_of_vacancies = 0
-        p_list = str(path).split(sep="\\")
+        p_list = str(path).split(sep="/")
         year = int(p_list[-1][0:4])
         if from_year <= year <= to_year:
             print(year)
@@ -55,4 +55,4 @@ def view_ads_count_from_to(from_year, to_year):
 
 
 if __name__ == '__main__':
-    view_ads_count_from_to(2002, 2020)
+    view_ads_count_from_to(2017, 2020)
