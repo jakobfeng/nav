@@ -1,0 +1,9 @@
+2012: 160014 ads, 240727 vacancies
+2013: 143281 ads, 218814 vacancies
+2014: 135097 ads, 203719 vacancies
+2015: 135871 ads, 208414 vacancies
+2016: 147173 ads, 233401 vacancies
+2017: 176285 ads, 285898 vacancies
+2018: 237458 ads, 416780 vacancies
+2019: 243886 ads, 423188 vacancies
+2020: 112321 ads, 207299 vacancies
