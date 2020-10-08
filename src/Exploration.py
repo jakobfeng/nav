@@ -102,13 +102,16 @@ def view_n_first_descritpions_year(n, year):
         p_list = str(path).split(sep="\\")
         if int(p_list[-1][:4]) == year:
             p = path
+    p = "..\\data\\input\\2002_descript_clean.csv"
     df = pd.read_csv(p, header=0, sep=";", nrows=n)
     descriptions = {}
     for row in df.iterrows():
         index = row[0]
-        id = row[1][1]
-        title = row[1][2]
-        desc = row[1][3]
+        print(row[1])
+        assert False
+        id = row[1][2]
+        title = row[1][3]
+        desc = row[1][4]
         descriptions[index] = [id, title, desc]
     for key in descriptions.keys():
         print("Index: " + str(key), ", ID: " + str(descriptions[key][0]) + ", title: " + str(descriptions[key][1]))
@@ -121,4 +124,4 @@ if __name__ == '__main__':
     # view_ads_count_from_to(2018, 2020)
     # view_all_struct_col_names(2020)
     #view_all_descript_col_names(2019)
-     view_n_first_descritpions_year(3, 2019)
+     view_n_first_descritpions_year(10, 2002)
