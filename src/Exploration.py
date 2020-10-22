@@ -4,15 +4,17 @@ from pathlib import Path
 from csv import reader
 import matplotlib.pyplot as plt
 
-path = "..//data//input//"
-paths = sorted(Path(path).iterdir(), key=os.path.getmtime)  # list of paths to all datasets
-out_path = "..//data//output//"
-plot_path = "..//plots//"
+
+struct_paths = sorted(Path("../data/input/struct/").iterdir())  # list all structured datasets paths
+print(struct_paths)
+descript_paths = sorted(Path("../data/input/descript/").iterdir())  # list all descriptive datasets paths
+out_path = Path("../data/output/")
+plot_path = Path("../plots/")
 
 
 def view_ads_count_from_to(from_year, to_year):
     ads = {}
-    for path in paths:
+    for path in struct_paths:
         number_of_ads = 0
         number_of_vacancies = 0
         p_list = str(path).split(sep="/")
@@ -20,7 +22,7 @@ def view_ads_count_from_to(from_year, to_year):
         if from_year <= year <= to_year:
             print(year)
             with open(path, 'r', encoding='utf-8') as read_obj:
-                csv_reader = reader(read_obj)
+                csv_reader = reader(read_obj, delimiter=';')
                 for row in csv_reader:
                     if row[0] != '':  # header row
                         number_of_ads += 1
@@ -38,8 +40,8 @@ def view_ads_count_from_to(from_year, to_year):
     #  plot
     divisor = 1000
     ads_values, vac_values = zip(*ads.values())
-    ads_values = [x/divisor for x in ads_values]
-    vac_values = [x/divisor for x in vac_values]
+    ads_values = [x / divisor for x in ads_values]
+    vac_values = [x / divisor for x in vac_values]
     plt.plot(ads.keys(), ads_values, label="Ads")
     plt.plot(ads.keys(), vac_values, label="Vacancies")
     plt.legend()
@@ -54,5 +56,71 @@ def view_ads_count_from_to(from_year, to_year):
     print("Plot saved to " + plot_path_fig)
 
 
+def view_all_descript_col_names(year):
+    p = ""
+    for path in descript_paths:
+        p_list = str(path).split(sep="//")
+        if int(p_list[-1][0:4]) == year:
+            p = path
+
+    with open(p, 'r') as read_obj:
+        csv_reader = reader(read_obj, delimiter=";")
+        header_string = next(csv_reader)
+    save_path = str(out_path + "descript_col_indices_" + str(year) + ".txt")
+    file = open(save_path, "w")
+    file.writelines("Index\tColumn name" + "\n")
+    for column in header_string:
+        y_string = (str(header_string.index(column)) + "\t" + str(column))
+        file.writelines(y_string + "\n")
+    print("\nDescriptive column names and indices from {} have been saved to {}".format(year, save_path))
+    file.close()
+
+    def view_all_struct_col_names(year):
+        p = ""
+        for path in struct_paths:
+            p_list = str(path).split(sep="//")
+            if int(p_list[-1][0:4]) == year:
+                p = path
+
+        with open(p, 'r') as read_obj:
+            csv_reader = reader(read_obj, delimiter=";")
+            header_string = next(csv_reader)
+        save_path = str(out_path + "struct_col_indices_" + str(year) + ".txt")
+        file = open(save_path, "w")
+        file.writelines("Index\tColumn name" + "\n")
+        for column in header_string:
+            y_string = (str(header_string.index(column)) + "\t" + str(column))
+            file.writelines(y_string + "\n")
+        print("\nStructured column names and indices from {} have been saved to {}".format(year, save_path))
+        file.close()
+
+
+def view_n_first_descritpions_year(n, year):
+    print(str("\n--------View {} first job ads descriptions from {}----------\n").format(n, year))
+    p = ""
+    for path in descript_paths:
+        p_list = str(path).split(sep="/")
+        print(p_list)
+        if int(p_list[-1][:4]) == year:
+            p = path
+    df = pd.read_csv(p, header=0, sep=",", nrows=n)
+    descriptions = {}
+    for _, row in df.iterrows():
+        index = row[0]
+        id = row[1]
+        title = row[2]
+        desc = row[3]
+        descriptions[index] = [id, title, desc]
+    for key in descriptions.keys():
+        print("Index: " + str(key), ", ID: " + str(descriptions[key][0]) + ", title: " + str(descriptions[key][1]))
+        print("Description: \n")
+        print(descriptions[key][2])
+        print("---------------------------------------------------\n")
+
+
 if __name__ == '__main__':
-    view_ads_count_from_to(2017, 2020)
+    # view_ads_count_from_to(2017, 2020)
+    # view_ads_count_from_to(2018, 2020)
+    # view_all_struct_col_names(2020)
+    # view_all_descript_col_names(2019)
+     view_n_first_descritpions_year(3, 2018)

@@ -1,0 +1,5 @@
+Index	Column name
+0	Stillingsnummer nav no
+1	Stilling Id
+2	Tittel vasket
+3	Stillingsbeskrivelse vasket

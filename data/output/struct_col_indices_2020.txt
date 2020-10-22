@@ -1,0 +1,32 @@
+Index	Column name
+0	
+1	Stillingsnummer
+2	Stillingsnummer nav no
+3	Stilling id
+4	Nav enhet kode
+5	Registrert dato
+6	Siste publisert dato
+7	Statistikk år mnd
+8	Offisiell statistikk flagg
+9	Stilling kilde
+10	Arbeidssted fylkesnummer
+11	Arbeidssted fylke
+12	Arbeidssted kommunenummer
+13	Arbeidssted kommune
+14	Arbeidssted landkode
+15	Arbeidssted land
+16	Isco versjon
+17	Yrke grovgruppe
+18	Yrkeskode
+19	Yrke
+20	Yrkesbetegnelse
+21	Bedrift org nr
+22	Bedrift navn
+23	Aktiv flagg
+24	Bedrift naring primar kode
+25	Foretak org nr
+26	Foretak navn
+27	Foretak sektor gruppe
+28	Antall stillinger
+29	Stillingstittel
+30	Tilleggskriterium
