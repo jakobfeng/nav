@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import os
 from pathlib import Path
 from csv import reader
@@ -6,7 +7,7 @@ import matplotlib.pyplot as plt
 
 struct_path = "..\\data\\input\\struct"
 struct_paths = sorted(Path(struct_path).iterdir())  # list all structured datasets paths
-descript_path = "..\\data\\input\\descript"
+descript_path = "..\\data\\input\\descript_cl"
 descript_paths = sorted(Path(descript_path).iterdir())  # list all descriptive datasets paths
 out_path = "..\\data\\output\\"
 plot_path = "..\\plots\\"
@@ -64,7 +65,7 @@ def view_all_descript_col_names(year):
             p = path
 
     with open(p, 'r') as read_obj:
-        csv_reader = reader(read_obj, delimiter=";")
+        csv_reader = reader(read_obj, delimiter=",")
         header_string = next(csv_reader)
     save_path = str(out_path + "descript_col_indices_" + str(year) + ".txt")
     file = open(save_path, "w")
@@ -75,43 +76,41 @@ def view_all_descript_col_names(year):
     print("\nDescriptive column names and indices from {} have been saved to {}".format(year, save_path))
     file.close()
 
-    def view_all_struct_col_names(year):
-        p = ""
-        for path in struct_paths:
-            p_list = str(path).split(sep="\\")
-            if int(p_list[-1][0:4]) == year:
-                p = path
 
-        with open(p, 'r') as read_obj:
-            csv_reader = reader(read_obj, delimiter=";")
-            header_string = next(csv_reader)
-        save_path = str(out_path + "struct_col_indices_" + str(year) + ".txt")
-        file = open(save_path, "w")
-        file.writelines("Index\tColumn name" + "\n")
-        for column in header_string:
-            y_string = (str(header_string.index(column)) + "\t" + str(column))
-            file.writelines(y_string + "\n")
-        print("\nStructured column names and indices from {} have been saved to {}".format(year, save_path))
-        file.close()
+def view_all_struct_col_names(year):
+    p = ""
+    for path in struct_paths:
+        p_list = str(path).split(sep="\\")
+        if int(p_list[-1][0:4]) == year:
+            p = path
+
+    with open(p, 'r') as read_obj:
+        csv_reader = reader(read_obj, delimiter=";")
+        header_string = next(csv_reader)
+    save_path = str(out_path + "struct_col_indices_" + str(year) + ".txt")
+    file = open(save_path, "w")
+    file.writelines("Index\tColumn name" + "\n")
+    for column in header_string:
+        y_string = (str(header_string.index(column)) + "\t" + str(column))
+        file.writelines(y_string + "\n")
+    print("\nStructured column names and indices from {} have been saved to {}".format(year, save_path))
+    file.close()
 
 
-def view_n_first_descritpions_year(n, year):
+def view_n_first_descriptions_year(n, year):
     print(str("\n--------View {} first job ads descriptions from {}----------\n").format(n, year))
     p = ""
     for path in descript_paths:
         p_list = str(path).split(sep="\\")
         if int(p_list[-1][:4]) == year:
             p = path
-    p = "..\\data\\input\\2002_descript_clean.csv"
-    df = pd.read_csv(p, header=0, sep=";", nrows=n)
+    df = pd.read_csv(p, header=0, sep=",", nrows=n)
     descriptions = {}
     for row in df.iterrows():
         index = row[0]
-        print(row[1])
-        assert False
-        id = row[1][2]
-        title = row[1][3]
-        desc = row[1][4]
+        id = row[1][1]
+        title = row[1][2]
+        desc = row[1][3]
         descriptions[index] = [id, title, desc]
     for key in descriptions.keys():
         print("Index: " + str(key), ", ID: " + str(descriptions[key][0]) + ", title: " + str(descriptions[key][1]))
@@ -120,8 +119,65 @@ def view_n_first_descritpions_year(n, year):
         print("---------------------------------------------------\n")
 
 
+def verify_descript_relates_to_struct():
+    conclusion = {}
+    for d in descript_paths:
+        number_of_ads = 0
+        number_of_hits = 0
+        p_list = str(d).split(sep="\\")
+        d_year = p_list[-1][0:4]
+        print("Checking descript year " + d_year)
+        s_path = ""
+        for s in struct_paths:
+            p_list = str(s).split(sep="\\")
+            s_year = p_list[-1][0:4]
+            if s_year == d_year:
+                print("Found path struct year " + s_year)
+                s_path = s  # path to struct the same year
+                break
+        descript_df = pd.read_csv(d, header=0, sep=",")
+        struct_df = pd.read_csv(s_path, header=0, sep=";")
+        print("Number of ads in descript: {}, number of ads in struct: {}".format(len(descript_df), len(struct_df)))
+        for d_row in descript_df.iterrows():
+            number_of_ads += 1
+            try:
+                d_id = np.int64(d_row[1][1])
+                s_row = struct_df.loc[struct_df["Stilling id"] == d_id]
+                if not s_row.empty:
+                    number_of_hits += 1
+            except Exception as e:
+                print(e)
+                print(d_row)
+        print("In year {}: {} ads and {} hits".format(d_year, number_of_ads, number_of_hits))
+        conclusion[d_year] = [number_of_ads, number_of_hits]
+    for year in conclusion.keys():
+        ads = conclusion[year][0]
+        hits = conclusion[year][1]
+        print("{}: {} ads in descript, {} of them found in struct".format(year, ads, hits))
+
+
+def delete_empty_descript_rows():
+    for d in descript_paths:
+        p_list = str(d).split(sep="\\")
+        d_year = p_list[-1][0:4]
+        print("Deleting empty rows from year " + d_year)
+        descript_df = pd.read_csv(d, header=0, sep=",")
+        if descript_df.isnull().values.any():
+            print("Found missing values in year " + d_year)
+            is_NaN = descript_df.isnull()
+            row_has_NaN = is_NaN.any(axis=1)
+            rows_with_NaN = descript_df[row_has_NaN]
+            print(rows_with_NaN)
+            descript_df = descript_df.dropna()
+            descript_df.to_csv(d, sep=",", index=False)
+
+
 if __name__ == '__main__':
+    print("Running method ...")
     # view_ads_count_from_to(2018, 2020)
     # view_all_struct_col_names(2020)
-    #view_all_descript_col_names(2019)
-     view_n_first_descritpions_year(10, 2002)
+    # view_all_descript_col_names(2019)
+    # view_n_first_descriptions_year(1, 2019)
+    # verify_descript_relates_to_struct()
+    # delete_empty_descript_rows()
+
