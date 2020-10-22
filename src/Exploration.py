@@ -105,7 +105,7 @@ def view_n_first_descriptions_year(n, year):
             p = path
     df = pd.read_csv(p, header=0, sep=",", nrows=n)
     descriptions = {}
-    for _, row in df.iterrows():
+    for row in df.iterrows():
         index = row[0]
         id = row[1][1]
         title = row[1][2]
@@ -125,7 +125,7 @@ def verify_descript_relates_to_struct():
         number_of_hits = 0
         p_list = str(d).split(sep="\\")
         d_year = p_list[-1][0:4]
-        print("Checking descript year " + d_year)
+        print("Checking descript_cl year " + d_year)
         s_path = ""
         for s in struct_paths:
             p_list = str(s).split(sep="\\")
@@ -136,7 +136,7 @@ def verify_descript_relates_to_struct():
                 break
         descript_df = pd.read_csv(d, header=0, sep=",")
         struct_df = pd.read_csv(s_path, header=0, sep=";")
-        print("Number of ads in descript: {}, number of ads in struct: {}".format(len(descript_df), len(struct_df)))
+        print("Number of ads in descript_cl: {}, number of ads in struct: {}".format(len(descript_df), len(struct_df)))
         for d_row in descript_df.iterrows():
             number_of_ads += 1
             try:
@@ -152,7 +152,7 @@ def verify_descript_relates_to_struct():
     for year in conclusion.keys():
         ads = conclusion[year][0]
         hits = conclusion[year][1]
-        print("{}: {} ads in descript, {} of them found in struct".format(year, ads, hits))
+        print("{}: {} ads in descript_cl, {} of them found in struct".format(year, ads, hits))
 
 
 def delete_empty_descript_rows():
