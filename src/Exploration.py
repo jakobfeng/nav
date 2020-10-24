@@ -5,12 +5,11 @@ from pathlib import Path
 from csv import reader
 import matplotlib.pyplot as plt
 
-struct_path = "..\\data\\input\\struct"
-struct_paths = sorted(Path(struct_path).iterdir())  # list all structured datasets paths
-descript_path = "..\\data\\input\\descript_cl"
-descript_paths = sorted(Path(descript_path).iterdir())  # list all descriptive datasets paths
-out_path = "..\\data\\output\\"
-plot_path = "..\\plots\\"
+
+struct_paths = sorted(Path("../data/input/struct").iterdir())  # list all structured datasets paths
+descript_paths = sorted(Path("../data/input/descript_cl").iterdir())  # list all descriptive datasets paths
+out_path = Path("../data/output/")
+plot_path = Path("../plots/")
 
 
 def view_ads_count_from_to(from_year, to_year):
@@ -126,7 +125,7 @@ def verify_descript_relates_to_struct():
         number_of_hits = 0
         p_list = str(d).split(sep="\\")
         d_year = p_list[-1][0:4]
-        print("Checking descript year " + d_year)
+        print("Checking descript_cl year " + d_year)
         s_path = ""
         for s in struct_paths:
             p_list = str(s).split(sep="\\")
@@ -137,7 +136,7 @@ def verify_descript_relates_to_struct():
                 break
         descript_df = pd.read_csv(d, header=0, sep=",")
         struct_df = pd.read_csv(s_path, header=0, sep=";")
-        print("Number of ads in descript: {}, number of ads in struct: {}".format(len(descript_df), len(struct_df)))
+        print("Number of ads in descript_cl: {}, number of ads in struct: {}".format(len(descript_df), len(struct_df)))
         for d_row in descript_df.iterrows():
             number_of_ads += 1
             try:
@@ -153,7 +152,7 @@ def verify_descript_relates_to_struct():
     for year in conclusion.keys():
         ads = conclusion[year][0]
         hits = conclusion[year][1]
-        print("{}: {} ads in descript, {} of them found in struct".format(year, ads, hits))
+        print("{}: {} ads in descript_cl, {} of them found in struct".format(year, ads, hits))
 
 
 def delete_empty_descript_rows():
