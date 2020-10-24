@@ -1,6 +1,3 @@
-# imports
-from functools import reduce
-
 from bs4 import BeautifulSoup
 import re
 from pathlib import Path
@@ -8,7 +5,6 @@ import pandas as pd
 import time
 from time import strftime
 from time import gmtime
-import functools
 
 
 # function to remove HTML tags
@@ -74,25 +70,8 @@ def clean_descript_files_all_years(path, out_path_all):
         clean_descript_file(p, year, out_path_all)
 
 
-def replace_norwegian_characters():
-    rep_dict = {"Ã¦": "æ", "Ã¥": "å", "Ã¸": "ø", "Ã˜": "Ø"}
-    pattern = re.compile("|".join([re.escape(k) for k in sorted(rep_dict, key=len, reverse=True)]),
-                         flags=re.DOTALL)
-    cleaned_files = sorted(Path("..\\data\\input\\descript_cl").iterdir())
-    for descript in cleaned_files:
-        if "descript_cl2" in str(descript):
-            text = open(descript, "r")
-            result = ""
-            for line in text.readlines():
-                new_line = pattern.sub(lambda x: rep_dict[x.group(0)], line)
-                result += new_line
-            x = open("..\\data\\input\\descript_cl\\2013_descript_cl3.csv", "w")
-            x.writelines(result)
-            x.close()
-
-
 if __name__ == '__main__':
     descript_path = "..\\data\\input\\descript"
     out_path = "..\\data\\input\\descript_cl\\"
     clean_descript_files_all_years(descript_path, out_path)
-    # replace_norwegian_characters()
+
