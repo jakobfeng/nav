@@ -40,7 +40,7 @@ def check_if_stilling_id_already_used(stilling_id, rows_year):
 
 
 def make_ads_set(n):
-    print("Finding " + str(n) + " random ads for each 14 job groups, every year from 2002 to 2018..\n")
+    print("Finding " + str(n) + " random ads for each 14 job groups, every year from 2013 to 2018..\n")
     training_ads_df = pd.DataFrame(columns=['Stilling id', 'Registrert dato', 'Yrke grovgruppe',
                                             'Stillingsbeskrivelse vasket'])
     for descript in descript_paths:  # each year...
@@ -110,11 +110,13 @@ def extend_training_set():
                            s)  # remove links
                 s = ' '.join([item for item in s.split() if '@' not in item])  # remove emails
                 s = re.sub(r'\d+', '', s)  # remove numbers
-                s = s.replace("/", " ")  # split two words connected by /
                 s = re.sub(r"\W+|_", " ", s)  # remove special characters
                 line_dict = {"Stilling id": stilling_id, 'Registrert dato': ad_date,
                        "Yrke grovgruppe": job_group, "Setning": s, "Kategori": None}
-                if len(s.split()) > 2:  # check that sentence still 3 words or longer
+                isempty = False
+                if s == " " or s == "" or s == "." or s == " . " or s == ". ":
+                    isempty = True
+                if not isempty:
                     rows_of_lines.append(line_dict)
         for line in rows_of_lines:
             training_lines_df = training_lines_df.append(line, ignore_index=True)

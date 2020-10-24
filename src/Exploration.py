@@ -177,7 +177,7 @@ if __name__ == '__main__':
     # view_ads_count_from_to(2018, 2020)
     # view_all_struct_col_names(2020)
     # view_all_descript_col_names(2019)
-    # view_n_first_descriptions_year(1, 2019)
+    view_n_first_descriptions_year(3, 2018)
     # verify_descript_relates_to_struct()
     # delete_empty_descript_rows()
 
