@@ -90,34 +90,41 @@ def make_ads_set(n):
     print("\nTraining ads saved to " + training_ads_path)
 
 
+def tokenize_description(description):
+    cleaned_sentences = []
+    sentences = tokenize.sent_tokenize(description)
+    for s in sentences:
+        s = re.sub(r'''(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+
+                |(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))''',
+                   " ",
+                   s)  # remove links
+        s = ' '.join([item for item in s.split() if '@' not in item])  # remove emails
+        s = re.sub(r'\d+', '', s)  # remove numbers
+        s = re.sub(r"\W+|_", " ", s)  # remove special characters
+        isempty = False
+        if s == " " or s == "" or s == "." or s == " . " or s == ". ":
+            isempty = True
+        if not isempty:
+            cleaned_sentences.append(s)
+    return cleaned_sentences
+
+
 def extend_training_set():
     print("\nSplitting all ads into individual lines...\n")
     training_lines_df = pd.DataFrame(columns=['Stilling id', 'Registrert dato', 'Yrke grovgruppe',
                                               'Setning', 'Kategori'])
-
     training_ads_df = pd.read_csv(training_ads_path, header=0, sep=";")
     for row in training_ads_df.iterrows():
         stilling_id = row[1][0]
         ad_date = row[1][1]
         job_group = row[1][2]
         description = row[1][3]
-        sentences = tokenize.sent_tokenize(description)
+        sentences = tokenize_description(description)
         rows_of_lines = []
         for s in sentences:
-            if len(s.split()) > 2:  # remove sentences shorter than three words
-                s = re.sub(r'''(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+
-                |(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))''', " ",
-                           s)  # remove links
-                s = ' '.join([item for item in s.split() if '@' not in item])  # remove emails
-                s = re.sub(r'\d+', '', s)  # remove numbers
-                s = re.sub(r"\W+|_", " ", s)  # remove special characters
-                line_dict = {"Stilling id": stilling_id, 'Registrert dato': ad_date,
-                       "Yrke grovgruppe": job_group, "Setning": s, "Kategori": None}
-                isempty = False
-                if s == " " or s == "" or s == "." or s == " . " or s == ". ":
-                    isempty = True
-                if not isempty:
-                    rows_of_lines.append(line_dict)
+            line_dict = {"Stilling id": stilling_id, 'Registrert dato': ad_date,
+                   "Yrke grovgruppe": job_group, "Setning": s, "Kategori": None}
+            rows_of_lines.append(line_dict)
         for line in rows_of_lines:
             training_lines_df = training_lines_df.append(line, ignore_index=True)
     training_lines_df.to_csv(training_lines_path, index=False, sep=";")

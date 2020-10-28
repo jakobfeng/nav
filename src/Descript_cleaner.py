@@ -8,26 +8,32 @@ from time import gmtime
 
 
 # function to remove HTML tags
-def remove_html_tags(text, index):
+def remove_html_tags(text):
     if len(text) > 0:
         clean = re.compile('<.*?><.*?>')
         text = re.sub(clean, '.', text)
         return BeautifulSoup(text, 'html.parser').get_text()
-    else:
-        print("Missing data from index {}: ".format(index))
 
 
 def multiple_replace(string):
     cleaned_desc = string.translate({ord(c): "." for c in "!@#$%^*;<>\|`~-=_+¿"})
-    rep_dict = {"[Klikk her]": "", "#": "", "\n": ".", "..": ".", ":.": ".", ", ,": ", ", "/": " ", "&": "og", "?": ".", ". . ": ".", " ca.": " ca"}
+    rep_dict = {"[Klikk her]": "", "#": "", "\n": ".", "..": ".", ":.": ".", ", ,": ", ", "/": " ", "&": "og", "?": ".",
+                ". . ": ".", " ca.": " ca"}
     pattern = re.compile("|".join([re.escape(k) for k in sorted(rep_dict, key=len, reverse=True)]), flags=re.DOTALL)
     cleaned_desc = pattern.sub(lambda x: rep_dict[x.group(0)], cleaned_desc)
     cleaned_desc = re.sub(r'\.+', ".", cleaned_desc)  # only one period (not more after one another)
     cleaned_desc = re.sub(r'\.(?! )', '. ', re.sub(r' +', ' ', cleaned_desc))  # assure space after each period
-    rep_dict = {"..": ". ", ":.": ". ", ", ,": ". ", ". . ": ". ", ".  . ": ". ", ". , . ,": ". ", ".,": ". ", ": .": ". ", ",. ": ". ", " . ": ". "}
+    rep_dict = {"..": ". ", ":.": ". ", ", ,": ". ", ". . ": ". ", ".  . ": ". ", ". , . ,": ". ", ".,": ". ",
+                ": .": ". ", ",. ": ". ", " . ": ". "}
     pattern = re.compile("|".join([re.escape(k) for k in sorted(rep_dict, key=len, reverse=True)]), flags=re.DOTALL)
     cleaned_desc = pattern.sub(lambda x: rep_dict[x.group(0)], cleaned_desc)
     return cleaned_desc
+
+
+def clean_ad_description(descript):
+    clean_desc = remove_html_tags(descript)
+    clean_desc = multiple_replace(clean_desc)
+    return clean_desc
 
 
 def clean_descript_file(path, year, out_path_all):
@@ -50,8 +56,7 @@ def clean_descript_file(path, year, out_path_all):
             if index % 1000 == 0:
                 print(index)
             descript = row[1][3]
-            clean_desc = remove_html_tags(descript, index)
-            clean_desc = multiple_replace(clean_desc)
+            clean_desc = clean_ad_description(descript)
             df.loc[index, col_name] = clean_desc
         try:
             df.to_csv(path_or_buf=out_path_year, sep=",", index=False)
@@ -74,4 +79,3 @@ if __name__ == '__main__':
     descript_path = "..\\data\\input\\descript"
     out_path = "..\\data\\input\\descript_cl\\"
     clean_descript_files_all_years(descript_path, out_path)
-
