@@ -10,8 +10,8 @@ struct_path = "..\\data\\input\\struct"
 struct_paths = sorted(Path(struct_path).iterdir())  # list all structured datasets paths
 descript_path = "..\\data\\input\\descript_cl"
 descript_paths = sorted(Path(descript_path).iterdir())  # list all descriptive datasets paths
-training_ads_path = "..\\data\\training\\training_ads.csv"
-training_lines_path = "..\\data\\training\\training_lines.csv"
+ads_path = "..\\data\\training\\label_ads.csv"
+label_lines_path = "..\\data\\training\\label_lines.csv"
 
 job_groups = ["Ledere", "Ingeniør- og ikt-fag", "Undervisning", "Akademiske yrker", "Helse, pleie og omsorg",
               "Barne- og ungdomsarbeid", "Meglere og konsulenter", "Kontorarbeid", "Butikk- og salgsarbeid",
@@ -41,7 +41,7 @@ def check_if_stilling_id_already_used(stilling_id, rows_year):
 
 def make_ads_set(n):
     print("Finding " + str(n) + " random ads for each 14 job groups, every year from 2013 to 2018..\n")
-    training_ads_df = pd.DataFrame(columns=['Stilling id', 'Registrert dato', 'Yrke grovgruppe',
+    ads_df = pd.DataFrame(columns=['Stilling id', 'Registrert dato', 'Yrke grovgruppe',
                                             'Stillingsbeskrivelse vasket'])
     for descript in descript_paths:  # each year...
         job_group_count = {}
@@ -85,9 +85,9 @@ def make_ads_set(n):
 
             is_finished = check_if_year_is_finished(rows_year, n)
         for row in rows_year:
-            training_ads_df = training_ads_df.append(row, ignore_index=True)
-    training_ads_df.to_csv(training_ads_path, index=False, sep=";")
-    print("\nTraining ads saved to " + training_ads_path)
+            ads_df = ads_df.append(row, ignore_index=True)
+    ads_df.to_csv(ads_path, index=False, sep=";")
+    print("\nTraining ads saved to " + ads_path)
 
 
 def tokenize_description(description):
@@ -109,12 +109,12 @@ def tokenize_description(description):
     return cleaned_sentences
 
 
-def extend_training_set():
+def extend_labeled_set():
     print("\nSplitting all ads into individual lines...\n")
-    training_lines_df = pd.DataFrame(columns=['Stilling id', 'Registrert dato', 'Yrke grovgruppe',
+    label_lines_df = pd.DataFrame(columns=['Stilling id', 'Registrert dato', 'Yrke grovgruppe',
                                               'Setning', 'Kategori'])
-    training_ads_df = pd.read_csv(training_ads_path, header=0, sep=";")
-    for row in training_ads_df.iterrows():
+    ads_df = pd.read_csv(ads_path, header=0, sep=";")
+    for row in ads_df.iterrows():
         stilling_id = row[1][0]
         ad_date = row[1][1]
         job_group = row[1][2]
@@ -126,10 +126,10 @@ def extend_training_set():
                    "Yrke grovgruppe": job_group, "Setning": s, "Kategori": None}
             rows_of_lines.append(line_dict)
         for line in rows_of_lines:
-            training_lines_df = training_lines_df.append(line, ignore_index=True)
-    training_lines_df.to_csv(training_lines_path, index=False, sep=";")
-    print("Training lines saved to " + training_lines_path)
+            label_lines_df = label_lines_df.append(line, ignore_index=True)
+    label_lines_df.to_csv(label_lines_path, index=False, sep=";")
+    print("Labeled lines saved to " + label_lines_path)
 
 if __name__ == '__main__':
     make_ads_set(2)
-    extend_training_set()
+    extend_labeled_set()

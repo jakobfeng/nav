@@ -1,0 +1,633 @@
+Vector,Label
+"['planlegg', 'gjennomfør', 'bedriftskontakt', 'dramm']",1
+"['formidlingsbistand', 'lokalt', 'arbeidsliv']",1
+"['gjør', 'oppmerksom', 'cv', 'benytt', 'utvid', 'søkerlist']",0
+"['nettverk', 'dykt', 'hygg', 'kollega']",0
+"['direkt', 'arbeid', 'brukar', 'samarbeid', 'andr', 'tilsett', 'bufellesskap', 'pårør', 'andr', 'instans']",1
+"['bevisst', 'haldning', 'prioriter', 'høgt', 'verdi', 'respekt', 'lojalit', 'etikk']",2
+"['ell', 'sosialfag', 'ell', 'pedagogisk', 'høgskuleutdanning', 'vurder']",3
+"['selvbetjening', 'skjem']",0
+"['haugesund', 'kommun', 'treng', 'ferievikar', 'mang', 'yrkesgrupp']",0
+"['st', 'nr']",0
+"['servicesent', 'innebær', 'jobb', 'hjemmesykeplei', 'namso', 'bo']",1
+"['gyld', 'førerkort', 'bil']",3
+"['løsningsorienter', 'positiv']",2
+"['kunnskap', 'komfortabel', 'bruk', 'dat']",2
+"['henholdsvis', 'mix', 'lif']",0
+"['lønn', 'øvr', 'beting', 'avtal']",0
+"['litt', 'reisevirksom', 'forkomm', 'tid', 'ann']",1
+"['treningsplan', 'får', 'kund', 'mål']",1
+"['utadvend', 'omgjeng', 'glimt', 'øyet']",2
+"['omstillingsdykt', 'nødvend']",2
+"['tim', 'økt', 'lojalit', 'kund']",0
+"['vær', 'søk']",0
+"['godt', 'utvikl', 'kremmerånd']",2
+"['tlf', 'mob', 'epost']",0
+"['attest', 'vitnemål', 'tas', 'innkalling', 'intervju', 'dersom', 'ikk', 'ann', 'framgår', 'annons']",0
+"['kommun', 'følg', 'stilling', 'pedagogisk', 'personell', 'led']",0
+"['derfor', 'ønsk', 'lærer', 'undervisningskompetans', 'fler', 'fag']",3
+"['erfaring', 'lign', 'arbeid']",0
+"['intervju', 'gjennomført']",0
+"['søker', 'vurder', 'andr', 'stilling', 'båd', 'fast', 'vikariat', 'mått', 'led', 'und', 'tilsettingsprosess']",0
+"['tilsetting', 'skjer', 'vilkår', 'går', 'fram', 'lov', 'reglement', 'tariffavtal', 'herund', 'risikodekning', 'pensjonsordning', 'arbeidstak', 'arbeidsgiv', 'betal', 'innskudd']",0
+"['alvdal', 'kommun', 'måned', 'prøvetid', 'stilling']",0
+"['utdanningsforbund', 'tillitsvalgtopplæring', 'ansvar', 'utdanningsforbund', 'mer', 'tillitsvalgt', 'all', 'nivå', 'organisasjon', 'godt', 'skoler', 'arbeid', 'ivaret', 'medlemm', 'lønn']",0
+"['dag', 'led', 'permisjon', 'jakt', 'erstatt', 'stilling', 'ca', 'april']",0
+"['ledererfaring', 'erfaring', 'organisering', 'kulturarrangement', 'ønsk']",3
+"['verifiser', 'krav', 'lci', 'fulgt', 'internt', 'prosjekt', 'hos', 'pakkeansvar', 'disiplinansvar']",1
+"['verifiser', 'krav', 'lci', 'ivaretatt', 'utsted', 'po', 'prosjekt', 'leverandør', 'kontraktør']",1
+"['delt', 'behandling', 'lci', 'relater', 'avklaring', 'avviksbehandling', 'møt']",1
+"['informasjon', 'opplæringsvirksom', 'innenfor', 'lci', 'relater', 'tem', 'prosjekt', 'leverandør']",0
+"['mann', 'monter', 'betongelement', 'stålkonstruksjon', 'anlegg']",1
+"['as', 'byggeplass', 'rapporter', 'fremdrift', 'ressursbehov', 'prosjektled']",1
+"['dett', 'må', 'alltid', 'ta', 'hensyn', 'behandl', 'firma', 'bil', 'størst', 'mul', 'forsikt']",0
+"['mer', 'informasjon', 'stilling', 'besøk', 'bedrift', 'hjemmesid']",0
+['ynskj'],0
+"['send', 'kortfatt', 'søknad', 'cv', 'snar']",0
+"['vider', 'forutsett', 'god', 'kommunikasjonsegenskap', 'norsk', 'engelsk', 'samt', 'evn', 'representer', 'statsbygg', 'utad', 'kompleks', 'sak', 'tyd']",2
+"['implementer', 'ulik', 'verktøy', 'ute', 'lokallag', 'fylkeslag']",1
+"['god', 'munt', 'skrift', 'fremstillingsevn']",2
+"['godt', 'humør', 'god', 'samarbeidsevn', 'fleksibilit', 'mht', 'arbeidstid', 'arbeidsform']",2
+"['drift', 'vedlikehold', 'anlegg', 'resirkulering']",1
+"['god', 'mul', 'person', 'fag', 'utvikling']",0
+['april'],0
+"['kirkeverg', 'kontor', 'tlf']",0
+"['ran', 'kirk', 'fellesråd']",0
+"['del', 'kværnerdal', 'barnehageen', 'består', 'syv', 'selvstend', 'barnehag', 'saml', 'tre', 'bygg']",0
+"['veiledning', 'kompetanseutvikling']",1
+"['målbevisst', 'selvgå', 'lyst', 'bidr']",2
+"['stor', 'effektiv', 'varehus', 'maks', 'utvalg', 'ansatt', 'lidenskap', 'fag', 'gi', 'norg', 'råest', 'handleopplev', 'sportsbransj']",0
+"['relevant', 'erfaring', 'tilsvar', 'roll', 'butikk']",3
+['konkurransedrev'],2
+"['elektronisk', 'søknadsskjem']",0
+"['bydel', 'stort', 'mangfold', 'mang', 'spenn', 'utfordring', 'godt', 'utbygg', 'tiltaksapparat', 'barn', 'ung']",0
+"['mottak', 'barn', 'famili', 'ungdom', 'omsorg', 'lokal', 'tiltak']",0
+"['barneverntjenest', 'fulgt', 'kompetanseopplegg']",0
+"['dett', 'preg', 'fag', 'tenkning', 'utfør', 'arbeid']",0
+"['søk', 'miljøterapeut', 'avdeling', 'lokal', 'tiltak']",0
+"['elektronisk', 'søknad', 'vurder']",0
+"['førerkort', 'klass', 'b', 'utdanningsretning']",3
+"['målrett', 'god', 'gjennomføringsevn']",2
+"['lønnsplassering', 'lønnstrinn']",0
+"['vikariat', 'mnd']",0
+"['lønnstrinn', 'kr']",0
+"['tjenestested', 'lutvann', 'oslo']",0
+"['divisjon', 'und', 'utvikling', 'endring', 'forhold', 'stilling', 'ansvarsområd', 'påregn']",0
+"['krev', 'universit']",3
+"['relevant', 'attest', 'vitnemål', 'må', 'legg', 'søknad']",3
+"['må', 'påregn', 'kur', 'utdanning', 'innenfor', 'fagfelt']",3
+['kr'],0
+"['kjønnssammensetning', 'rekrutter', 'person', 'innvandrerbakgrunn']",0
+"['nærmer', 'opplysning', 'stilling', 'fås', 'henvend', 'seksjonssjef']",0
+"['rekrutter', 'årl', 'opptil', 'traine', 'vårt', 'kontor', 'oslo', 'samt', 'traine', 'kontor', 'stavang', 'haugesund', 'tønsberg']",0
+['traineeperiod'],0
+"['traineestilling', 'hovedsak', 'student', 'ikk', 'ferd', 'studer']",3
+"['få', 'tildelt', 'fadd', 'gir', 'råd', 'pås', 'får', 'varier', 'arbeidsoppgav', 'gir', 'høyt', 'fag', 'utbytt']",0
+"['gang', 'utlysning']",0
+"['tromsø', 'fengsel', 'led']",0
+"['søker', 'må', 'vær', 'gjennomfør', 'pålagt', 'kur', 'utdanning', 'krev']",3
+"['person', 'egenskap', 'søker', 'må', 'tilstreb', 'god', 'kommunikasjon', 'samt', 'evn', 'vilj', 'skap', 'godt', 'arbeidsmiljø', 'blant', 'ansatt', 'innsatt']",2
+"['person', 'egnet', 'stilling', 'vektlagt']",0
+"['bruttolønn', 'trekk', 'innskudd', 'stat', 'pensjonskass']",0
+"['utfyll', 'politiattest', 'må', 'fremlegg']",3
+"['søknad', 'cv', 'send', 'elektronisk', 'via', 'denn', 'sid', 'jobbnorg']",0
+"['se', 'annons', 'søk', 'stilling', 'www']",0
+"['qualification', 'personal', 'attribut']",0
+"['good', 'communication', 'skill', 'verbal', 'and', 'writt']",2
+"['friendly', 'colleagu', 'in', 'an', 'industry', 'with', 'a', 'bright', 'futur']",0
+"['exciting', 'job', 'opportuniti', 'with', 'a', 'great', 'potential', 'professional', 'development']",0
+"['går', 'veld', 'sosial', 'blid', 'gutt']",0
+"['dett', 'interess', 'ta', 'kontakt', 'telefon', 'ell', 'e', 'post']",0
+"['utviklingsavdeling', 'produksjonslokal', 'lag', 'lagerhotell']",0
+"['behov', 'nyopprett', 'stilling']",0
+"['etablering', 'overvåkning', 'sosial', 'medi']",1
+"['fordel', 'kunnskap', 'vedlikehold', 'serv', 'maskin', 'mykvar', 'int', 'krav']",3
+"['gjern', 'kjennskap']",0
+"['søk', 'direkt', 'link']",0
+"['ferievik', 'kleiv', 'omsorgssent', 'somm']",0
+"['sommer', 'ikk', 'rikt', 'end', 'kleiv', 'omsorgssent']",0
+"['kjøkken', 'dagsenter', 'hjemmetjenest']",0
+"['vaskeri', 'ell', 'sykehjemm']",0
+"['avvikl', 'feri']",0
+"['stor', 'stilling', 'tenk', 'jobb']",0
+"['vikariat', 'etterforsk']",1
+"['god', 'skrift', 'munt', 'fremstillingsevn', 'norsk']",3
+"['videreutdanning', 'avhør', 'barn', 'ungdom']",3
+"['vert', 'tilsett', 'går', 'team', 'tre', 'medarbeidar']",0
+"['stilling', 'gjeld', 'prøvetid', 'md']",0
+"['tek', 'atterhald', 'tilsett', 'sogn']",0
+"['nærar', 'opplysning', 'stilling', 'få', 'vend', 'flor', 'vidaregå', 'skul', 'v', 'rektor', 'tlf']",0
+"['und', 'led', 'stilling', 'innan']",0
+['novemb'],0
+"['continental', 'nordisk', 'virksom']",0
+"['a', 'head', 'of']",0
+"['stilling', 'delt', 'continental', 'europeisk', 'team', 'ansv', 'prisstrategi']",1
+"['organiser', 'implementer', 'sikr', 'best', 'practic', 'strategi', 'bruk', 'salg']",1
+"['personalansv', 'ansvar', 'videreutvikl']",1
+"['rett', 'kandidat', 'minimum', 'års', 'erfaring', 'markedsføring', 'ell', 'salg', 'nordisk', 'virksom']",3
+"['prisstrategi', 'bb', 'marked', 'internasjonalt', 'konsern']",3
+"['elektronisk', 'søknadsskjem']",0
+"['ansatt', 'hold', 'årn', 'nes']",0
+"['søknad', 'fortløp', 'vurder']",0
+"['mer', 'informasjon', 'vedr']",0
+"['styr', 'arbeid', 'nettverk', 'andr', 'barnehagestyrar', 'kommun']",1
+"['barnehag', 'arbeid', 'aktiv', 'vurdering', 'kvalitetsutvikling', 'samarbeid', 'fem', 'andr', 'kommun', 'region']",1
+"['motiver', 'leik', 'læring']",2
+"['nærar', 'opplysning', 'ta', 'kontakt', 'kommunalsjef']",0
+"['gjensid', 'søk', 'næringslivsselg', 'berg']",1
+"['vilj', 'evn', 'lever', 'resultat', 'tid']",2
+"['viktigst', 'oppgav', 'kassemedarbeider', 'skap', 'god', 'handleopplev', 'kund', 'sørg', 'godt', 'etterlatt', 'sisteinntrykk']",1
+"['ansvar', 'skap', 'god', 'handleopplev', 'kund', 'spesielt', 'fokus', 'frukt', 'grønt']",1
+"['gjennomføring', 'kampanj', 'butikk']",1
+"['viktigst', 'oppgav', 'ferskvareansvar', 'skap', 'god', 'handleopplev', 'kund', 'spesielt', 'fokus', 'ferskvareavdeling']",1
+"['tillegg', 'fell', 'ansv', 'butikk', 'fremstår', 'ren', 'tiltal', 'enhv', 'tid', 'inkluder', 'jobb', 'blant', 'ann']",1
+"['arbeid', 'krev', 'innsat', 'utov', 'van', 'spenn', 'hektisk', 'hverdag', 'jobb', 'innebær', 'blant', 'ann']",0
+"['ann', 'forefallent', 'arbeid']",1
+"['rem', 'mul', 'mang', 'mennesk', 'tør', 'gi', 'positiv', 'selvstend']",2
+"['inkluder', 'arbeidsmiljø', 'ansatt', 'jobb', 'team', 'tver', 'team']",1
+"['tilsetting', 'person', 'egnet', 'vektlagt']",0
+"['kommun', 'nødvend', 'hjelp', 'utfylling', 'søknadsskjema']",0
+"['kopp', 'halvtom', 'ell', 'halvfull']",0
+"['søk', 'initiativrik', 'person', 'gjern', 'høyer', 'utdann', 'bred', 'kontaktflat', 'god', 'samarbeidsevn', 'evn', 'jobb', 'selvstend']",2
+"['søk', 'relevant', 'jobberfaring', 'god', 'drinkeferd']",3
+"['mest', 'kjøring', 'gravemaskin', 'avforskel', 'stør', 'samt', 'litt', 'lastebil']",1
+"['ønsk', 'kvalifikasjon', 'allsid', 'teknisk', 'innsikt', 'evnt', 'vilj', 'stå', 'travl', 'period']",2
+"['all', 'opplæring', 'gitt']",0
+"['nærmer', 'opplysning', 'stilling', 'kontakt']",0
+"['vevelstad', 'forvik', 'vevelstad']",0
+['led'],0
+"['vert', 'tilsett', 'vikarpool', 'hovudsak', 'nytt', 'all', 'vern', 'bustad', 'grand']",0
+"['tillegg', 'må', 'led', 'vakt', 'ekstr', 'behov', 'nytt', 'andr', 'stad', 'spesialomsorg']",0
+"['løn', 'utdanning', 'praksis', 'henhold', 'hta']",0
+"['år', 'arbeid', 'grand', 'bufellesskap']",0
+"['vert', 'trekt', 'tariffest', 'tenestepensjon']",0
+"['klikk', 'stilling', 'søkj', 'vel', 'søk', 'stilling', 'høgr', 'bilet']",0
+"['dersom', 'allerei', 'tilsett', 'kommun', 'ell', 'vor', 'søkj', 'bruk', 'tildelt', 'brukarnamn', 'passord', 'ell', 'bruk', 'gløymt', 'passord']",0
+"['dersom', 'treng', 'hjelp', 'innlegging', 'ta', 'kontakt', 'personalavdeling', 'tlf']",0
+"['stillingtyp', 'fast', 'heiltid']",0
+"['leiar', 'spesialomsorg', 'mobil']",1
+"['we', 'are', 'looking', 'the', 'right', 'marketing', 'professional', 'to', 'bring', 'joubel', 's', 'hp', 'technology', 'to', 'the', 'global', 'mark']",1
+"['who', 'are', 'we', 'looking']",0
+"['excellent', 'command', 'of', 'writt', 'and', 'spok', 'english']",3
+"['social', 'medi', 'management', 'and', 'skill']",3
+"['focused', 'analytic', 'and', 'strategic']",2
+"['keen', 'sens', 'of', 'tactic']",2
+"['press', 'mor', 'information', 'about', 'joubel']",0
+"['elektronisk', 'søknadsskjem']",0
+"['oppstart', 'august']",0
+"['fleksibilit', 'samarbeidsevn', 'forutsetning']",2
+"['tilsetting', 'beting', 'godt', 'norsk', 'språk', 'egnet', 'godkjent', 'politiattest']",3
+"['jobb', 'und', 'streng', 'sikkerhetskrav']",3
+"['tilleggsutdann', 'ell', 'erfaring', 'prosjektled', 'vær', 'positiv']",3
+"['god', 'munt', 'fremstillingsevn', 'norsk', 'ell', 'engelsk']",2
+"['legg', 'vekt', 'lojalit', 'forhold', 'jernbaneverk', 'etisk', 'retningslinj', 'verdi', 'åpen', 'profesjonell', 'engasjer']",2
+"['god', 'utviklingsmu', 'organisasjon', 'vekst']",0
+"['salg', 'rekruttering']",1
+"['oppfølging', 'kandidat']",1
+"['erfaring', 'rekrutteringsbransj']",3
+"['årl', 'firmatur']",0
+"['hygg', 'lokal', 'sentralt', 'kort', 'vei', 'offent', 'kommunikasjon', 'butikk', 'restaurant', 'etc']",0
+"['elektronisk', 'søknadsskjem']",0
+"['seks', 'skiftlag', 'operer', 'anlegg', 'tim', 'døgn', 'dag', 'året']",0
+"['regelmess', 'inspiser', 'rapporter', 'unormal', 'forhold', 'skiftled']",1
+"['praksis', 'drift', 'vedlikehold', 'prosessanlegg']",3
+"['fagskol', 'fagbrev', 'år']",3
+"['mer', 'informasjon', 'elektronisk', 'søknadsskjem']",0
+"['vektlegg', 'grund', 'opplæring', 'hektisk', 'inspirer', 'arbeidsmiljø']",0
+"['søknad', 'må', 'lever', 'via', 'søknadsskjem', 'nettsid']",0
+"['brigadeled', 'nk']",0
+"['stilling', 'byr', 'stor', 'utfordr', 'oppgav', 'sentral', 'stilling', 'posisjon', 'vær', 'utvikl', 'beredskapsavdeling']",1
+"['beredskap', 'lønn', 'kr']",0
+"['vakttillegg', 'komm', 'tillegg', 'overnevnt', 'lønnsplassering']",0
+['bekkestu'],0
+"['sverr', 'n', 'junk']",0
+"['hfs', 'ei', 'allsid', 'verksemd', 'driv', 'restaurering', 'verneverd', 'fartøy', 'museum', 'vern', 'vidareføring', 'gaml', 'handverk', 'fagopplæring', 'maritim', 'leirskul', 'reiseliv']",0
+"['tid', 'led', 'lærlingplass', 'trebåtbyggjarfag']",0
+"['løsningsorienter', 'ser', 'mul']",2
+"['truckførerbevis', 't', 't', 't']",3
+"['medlemskap', 'pensjonsordning', 'pensjonstrekk', 'grupp']",0
+"['ulykkesforsikring', 'samt', 'fritidsulykkesforsikring']",0
+"['gaustadalle', 'oslo']",0
+['ønsk'],0
+"['god', 'skrift', 'munt', 'fremstillingsevn']",3
+"['kunn', 'arbeid', 'selvstend', 'effektiv', 'ta', 'initiativ', 'ulik', 'sammenheng']",2
+"['undervisningserfaring', 'grunnskol']",3
+"['kirkevei', 'ski']",0
+"['lyst', 'spenn', 'oppgåv', 'kommun', 'vekst']",0
+"['meland', 'kommun', 'søkj']",0
+"['sjå', 'fullstend', 'utlysingstekst', 'kommun', 'nettsid', 'www']",0
+"['lasting', 'lossing', 'bil']",1
+"['sveisesertifikat', 'vær', 'fordel']",3
+"['må', 'behersk', 'norsk', 'ell', 'engelsk', 'munt', 'skrift']",3
+"['kunn', 'jobb', 'kokk', 'krev', 'jobb', 'raskt', 'effektiv', 'und', 'tidspress', 'nøyakt', 'samarbeidsvil', 'samt', 'still', 'høye', 'hygienekrav']",1
+"['medarbeid', 'scandic', 'lik', 'omgå', 'mennesk', 'yte', 'servic']",2
+"['still', 'støtt', 'behov']",2
+"['må', 'jobb', 'kjøkk', 'kokk', 'ell', 'kjøkkenhjelp']",3
+"['arbeidstid', 'behov', 'inkluder', 'dag', 'kveld']",0
+"['arbeidsoppgav', 'vær', 'frokost', 'lunsj', 'middag', 'servering']",1
+"['link', 'søknadsskjem', 'send', 'søknad', 'mer', 'informasjon', 'kontakt']",0
+"['sted', 'kristiansand', 'omegn']",0
+"['elektronisk', 'søknadsskjem']",0
+"['ansv', 'oppfølging', 'aktivitet', 'hos', 'nye', 'eksister', 'kund']",1
+"['stilling', 'rapporter', 'salgsdirektør', 'norg']",1
+"['evn', 'relasjonsbygging', 'oppfølging', 'kund']",2
+"['representativ', 'beslutningsdykt']",2
+"['erfaring', 'kontraktsforhandling']",3
+"['lønn', 'avtal']",0
+"['all', 'henvend', 'søknad', 'behandl', 'konfidensielt']",0
+"['lang', 'dokumenterb', 'erfaring', 'sikkerhetsrelater', 'arbeid', 'erfaring', 'arbeid', 'knytt', 'sikker']",3
+"['god', 'evn', 'uttrykk', 'munt', 'skrift']",2
+"['tenestelei', 'mobil']",0
+"['utviklingsorienter', 'holdning', 'vant', 'sett', 'ambisiøs', 'mål']",2
+"['annonsør', 'kristiansand', 'kommun']",0
+"['antall', 'stilling']",0
+"['elektronisk', 'søknadsskjem']",0
+"['minimum', 'treår', 'relevant', 'utdanning', 'høyskol', 'universit']",3
+['ønsk'],0
+"['god', 'evn', 'møt', 'mennesk', 'respekt', 'likeverd', 'samtid', 'evn', 'avklar', 'forventning', 'sett', 'grens']",2
+"['bidr', 'endringsprosess', 'kontor', 'utvikling', 'nav']",1
+"['sertifikat', 'klass', 'b', 'person', 'egnet', 'tillegg', 'stor', 'vekt']",3
+"['funksjonell', 'triv', 'lokal']",0
+"['spørsmål', 'stilling', 'rett']",0
+"['attest', 'vitnemål', 'taes', 'evt']",3
+"['larvik', 'kommun', 'ønsk', 'mott', 'all', 'søknad', 'elektronisk', 'oppfordr', 'søker', 'benytt', 'vårt', 'elektronisk', 'søknadsskjem']",0
+"['ansvarsområd', 'blant', 'ann', 'vær']",0
+"['gi', 'god', 'sevic', 'overfor', 'kirkegård', 'bruker']",1
+"['ansv', 'praktisk', 'tilrettelegging', 'oppfølg', 'begrav', 'urnenedsett']",1
+"['ansv', 'forsvar', 'tilgjeng', 'kirkehus', 'enhv', 'tid']",1
+"['ser', 'selger', 'bidr', 'øke', 'annonseomsetning']",1
+"['lønn', 'lev', 'godt']",0
+"['jobb', 'intenst', 'engasjer', 'utvikl', 'arbeidsmiljø']",0
+"['selg', 'nye', 'eksister', 'kund']",1
+"['lønn', 'garantilønn', 'provisjon']",0
+"['relevant', 'erfaring', 'utdanning', 'innan', 'lønnsarbeid', 'offent', 'sektor']",3
+"['ber', 'søknad', 'ikkj', 'vert', 'send', 'e', 'post']",0
+"['assistering', 'hesteassister', 'terapi']",1
+"['person', 'egnet', 'vektlagt']",0
+"['food', 'beverag', 'utgjør', 'stor', 'del', 'omsetning', 'ekstremt', 'vikt']",0
+"['erfaring', 'kjøkkenled']",3
+"['mer', 'informasjon', 'kontakt']",0
+"['båd', 'innenfor', 'mindr', 'servicejobb', 'størr', 'prosjekt']",0
+"['fag', 'dykt', 'fleksibilit', 'forhold', 'oppgav']",2
+"['god', 'arbeidsforhold', 'hygg', 'kollega']",0
+"['flyttegodtgjør', 'hht']",0
+"['harstad', 'kommun', 'benytt', 'elektronisk', 'søknadsprosess']",0
+"['dett', 'betyr', 'søknad', 'send', 'via', 'vårt', 'elektronisk', 'søknadssystem', 'tatt', 'betraktning']",0
+"['velkomm', 'søknad']",0
+"['enhetsled', 'mobil']",1
+"['stilling', 'søkj', 'person']",0
+"['godt', 'humør']",2
+"['samarbeidsrett', 'god', 'relasjonsbygg']",2
+"['krav', 'kompetans']",3
+"['klikk', 'søk', 'stilling', 'følg', 'vidar', 'instruksjon']",0
+"['fagansvar', 'kart', 'oppmåling']",1
+"['fullstend', 'utlysningstekst', 'elektronisk', 'søknadsskjem']",0
+"['selg', 'fing', 'spiss', 'tar', 'godt', 'besøk', 'komm', 'butikk', 'frem', 'forlat']",2
+"['ansv', 'sortering', 'butikk']",1
+"['tilsetting', 'gjeld', 'period', 'år']",0
+"['all', 'stipendiat', 'medisinsk', 'fakultet', 'forplikt', 'følg', 'doktorgradsprogramm', 'grad', 'ph']",3
+"['d', 'universitet', 'oslo']",0
+"['doktorgradsutdanning', 'tverrfag', 'energisk', 'internasjonalt', 'led', 'forskningsmiljø']",0
+"['positiv', 'god', 'samarbeidsevn']",2
+"['lønn', 'gjeld', 'overenskomst']",0
+"['engelsk', 'fransk']",0
+"['vurderingskultur', 'lesing', 'skriving', 'grunnlegg', 'ferd', 'psykososialt', 'læringsmiljø', 'ikt', 'undervisning']",0
+"['andr', 'fag', 'vær', 'interessant', 'kombinasjon', 'engelsk', 'fransk']",0
+"['godkjent', 'lærerutdanning', 'utdanning', 'pedagogikk']",3
+"['tilsetting', 'beting', 'godkjent', 'politiattest']",3
+"['skol', 'preg', 'trivsel', 'båd', 'hos', 'elev', 'ansatt']",0
+['ia'],0
+"['positiv', 'innstilling', 'bistå', 'behov']",2
+"['kvinn', 'oppfordr', 'søk']",0
+"['as', 'søk', 'vegn', 'rådgiv', 'ingeniørfirm', 'sivlingeniør', 'bygg', 'anlegg', 'trøndelag']",1
+"['søk', 'erfaring', 'bygg', 'anlegg', 'ønsk', 'gå', 'rådgivningsdel']",3
+"['the', 'coordinator', 'will', 'report', 'directly', 'to', 'the', 'president', 'of', 'ife', 'and', 'presenc', 'in', 'brussel', 'must', 'be', 'expected']",1
+"['and', 'communication', 'skill']",2
+"['klubbarbeider', 'del', 'team', 'barn', 'ung', 'enh', 'kultur', 'følg', 'formål']",0
+"['funksjonshemm', 'all', 'alder']",0
+"['tilby', 'kur', 'workshop', 'ell', 'andr', 'aktivitet', 'øker', 'inkludering', 'styrk', 'ung', 'identit', 'mul', 'samt']",1
+"['produser', 'utvikl', 'formidl', 'kulturtilbud', 'hel', 'kommun', 'befolkning', 'tråd', 'kommun', 'visjon']",1
+"['små', 'størr', 'arrangement', 'enkelt', 'fritidsklubb', 'ell', 'fellesskap', 'tver', 'fritidsklubb', 'ell', 'andr']",0
+"['medvirk', 'norm', 'teamarbeid', 'gjeld', 'sarpsborg', 'kommun', 'ivaret', 'god']",1
+"['samm', 'øvr', 'deltakern', 'team', 'arbeid', 'positiv', 'utvikling', 'fritidsklubb']",1
+"['jobb', 'direkt', 'tiltak', 'ungdom']",1
+"['utvikling', 'tiltak', 'prosjekt', 'enkelt', 'klubb']",1
+"['øvr', 'vilkår', 'ann']",0
+"['opplæring', 'gitt']",0
+"['fast', 'assistentstilling', 'deltid', 'tilkallingsassistent', 'flå', 'buskerud']",0
+"['år', 'rullestolbruk']",0
+"['arbeidsoppgav', 'hos']",0
+['søknadsfrist'],0
+"['oppnå', 'god', 'samhandling', 'internt', 'fakultet', 'høgskol', 'øvr', 'enhet', 'må', 'direktør', 'bidr', 'skap', 'positiv', 'samarbeidsklim', 'motiver', 'medarbeider', 'bidr', 'løft', 'organisasjon']",1
+"['ønsk', 'drift', 'engasjer', 'direktør', 'god', 'lederkompetans', 'virksomhetsled', 'personalled', 'endringsled', 'strategi']",2
+"['høgskol', 'ønsk', 'medarbeider', 'størst', 'mul', 'grad', 'gjenspeil', 'mangfold', 'befolkning']",0
+"['fortsett', 'vekst', 'ønsk', 'styrk', 'organisasjon', 'motiver', 'medarbeid', 'vårt', 'team', 'norg']",0
+"['mang', 'prosess', 'dett', 'områd', 'ønsk', 'videreutvikl']",0
+"['kontakt', 'logistikkpartner']",1
+"['selvstend', 'arbeid', 'eget', 'ansvarsområd']",0
+"['interesser', 'utvikl', 'mye', 'ansv', 'gjennom', 'høy', 'arbeidsinnsat', 'stort', 'engasjement']",2
+"['powermec', 'as', 'sollivei', 'rolvsøy']",0
+"['elektronisk', 'søknadsskjem']",0
+"['søknadsfrist', 'janu']",0
+"['person', 'gjern', 'vær', 'sterk', 'leng', 'gir', 'rom', 'andr']",2
+"['stilling', 'krev', 'må', 'forhold', 'operativ', 'led', 'forvent', 'stand', 'ta', 'selvstend', 'operativ', 'beslutning']",2
+"['få', 'jobb', 'hos', 'må', 'person', 'egenskap', 'ansett', 'sikkerhetstjenest', 'krev']",0
+"['må', 'kunn', 'autoriser', 'sikkerhetsklarer', 'strengt', 'hemm', 'norsk', 'statsborgerskap', 'ansettelsestidspunkt']",3
+"['søknad', 'prosess']",0
+"['aktuell', 'kandidat', 'innkalt', 'intervju']",0
+"['oppfordr', 'utvis', 'diskresjon', 'søk', 'stilling', 'pst']",0
+"['tilbyr', 'stilling', 'avlønn', 'lønnsramm', 'ell', 'politibetjent', 'ell']",0
+"['nydal', 'oslo']",0
+"['elektronisk', 'søknadsskjem']",0
+"['ekspedisjonstjenest', 'poliklinikk', 'administrasjon']",0
+"['søknad', 'samm', 'oversikt', 'utdanning', 'tidliger', 'arbeidserfaring', 'cv', 'send']",0
+"['selskap', 'esso', 'bensinstasjon', 'samt', 'redningstjenest']",0
+"['motiver', 'ansatt', 'leder', 'fell', 'mål']",1
+"['sosial', 'utadvend', 'nettverksbygg']",2
+"['søknadsfrist', 'septemb']",0
+"['arbeidsoppgav', 'skoleassistentstilling']",0
+"['aktuell', 'utdanning', 'vær', 'barn']",0
+"['ene', 'stilling', 'krav', 'kompetans', 'ell', 'interess']",0
+"['stilling', 'krev', 'bestått', 'norskprøv', 'minst', 'b']",3
+"['relasjonsbygg', 'positiv', 'tilstedevær', 'møt', 'mennesk']",2
+"['lønnsspenn', 'kr']",0
+"['søknad', 'send', 'via', 'epost']",0
+"['fagmiljø', 'preg', 'ønsk', 'vær', 'lær', 'organisasjon', 'sterkt', 'engasjement', 'stor', 'takhøyd', 'diskusjon', 'refleksjon']",0
+"['koordiner', 'innsat', 'samskaping', 'tid', 'innsat', 'tillit', 'vikt', 'stikkord']",2
+"['barnehag', 'avdeling', 'fordelt', 'to', 'etasj', 'avdeling', 'etasj', 'småbarn', 'avdeling', 'etasj', 'storebarn']",0
+"['barnehag', 'egen', 'gymsal', 'to', 'stor', 'flott', 'formingsrom']",0
+"['barnehag', 'ligg', 'land', 'grefs', 'nær', 'kollektiv', 'transport']",0
+"['bruk', 'ikt', 'dokumentasjon', 'hverdag']",1
+"['god', 'mul', 'fag', 'utvikling']",0
+"['god', 'pensjonsforsikring', 'kontaktinformasjon']",0
+"['fræn', 'kommun', 'aktiv', 'spenn', 'period', 'rekk', 'størr', 'utbygging']",0
+"['janu', 'slår', 'kommun', 'samm', 'eid', 'kommun', 'dann', 'hustadvik', 'kommun']",0
+"['ny', 'administrativ', 'hovedstruktur', 'hustadvik', 'kommun', 'ennå', 'ikk', 'beslutt', 'denn', 'stilling', 'tiltenkt', 'sentral', 'plass', 'administrasjonssjef', 'nærmest', 'ledergrupp', 'nye', 'kommun']",0
+"['universitetsnivå', 'gjern', 'helseled']",3
+"['selvgå', 'ser', 'nye', 'mul', 'aktiv', 'pådriv', 'utvikling', 'organisasjon', 'kommunal', 'tjenestetilbud']",2
+"['hygg', 'fag', 'sterkt', 'arbeidsmiljø']",0
+"['ekstr', 'fridag']",0
+"['utarbeid', 'egen', 'lederavtal']",0
+"['vennligst', 'ikk', 'send', 'vitnemål', 'attest']",0
+"['stillingtyp', 'fast', 'ansatt']",0
+"['jobbnorg', 'id']",0
+"['bmi', 'research', 'group', 'the', 'department', 'of', 'informatic', 'ifi']",0
+"['nok', 'per', 'year', 'depending', 'on', 'qualification', 'and', 'experienc']",0
+"['an', 'organization', 'in', 'continuous', 'development', 'with', 'ambitious', 'goal']",0
+"['stilling', 'fagarbeid']",1
+"['tilrettelegg', 'barn', 'får', 'god', 'opplev', 'skol']",1
+"['relevant', 'erfaring', 'veie', 'mangl', 'utdanning']",0
+"['søker', 'må', 'vær', 'tyd', 'bestemt', 'voksn']",2
+"['pliktoppfyll', 'tålmod']",2
+"['samarbeidsvil', 'fleksibl']",2
+"['videregå', 'skol', 'koppang', 'tyns', 'begg', 'sted', 'ca', 'km']",0
+"['barneklubb', 'åkr']",0
+"['rendal', 'byr', 'unik', 'mul', 'friluftsliv', 'jakt', 'fisk', 'naturskjønn', 'omgiv']",0
+"['aktiv', 'kultursent']",0
+"['land', 'størst', 'retreatsent']",0
+"['hanestad', 'kirk', 'langkirk', 'sitteplass']",0
+"['fellesråd', 'fokuser', 'bygg', 'egen', 'kirk', 'kompetans', 'rendal']",0
+"['derfor', 'utgjør', 'natur', 'del', 'dett', 'team']",0
+"['måned', 'samling', 'prost', 'tyns']",0
+"['konfirmant', 'tilknytt', 'kragerøleir']",0
+"['finn', 'diakoniplan', 'all', 'sokn']",0
+"['mang', 'god', 'samarbeidspartner', 'menighetsliv', 'menighetsråd', 'diakoniutvalg', 'frivil', 'medarbeider', 'barnearbeid', 'barneklubb']",0
+"['all', 'misjonskontakt', 'gjennom', 'nms']",0
+"['profesjonsstudium', 'teologi']",0
+"['person', 'lik']",0
+"['voss', 'knutepunkt', 'lang', 'stamveg', 'aust']",0
+"['voss', 'kommun', 'størst', 'arbeidsgjevar', 'bygd', 'lag', 'tilsett']",0
+"['stilling', 'rapporter', 'økonomisjef']",0
+"['god', 'kommunikasjonevn', 'norsk', 'engelsk', 'skrift', 'munn']",3
+"['attest', 'vitnemål', 'leggj', 'elektronisk', 'ell', 'send', 'voss', 'kommun', 'boks', 'voss', 'merk', 'stillingsreferans']",3
+"['kommun', 'litt', 'ansatt']",0
+"['stabsled', 'hr', 'servic', 'utvikl', 'formidl', 'god', 'enhet', 'arbeidsgiverpolitikk', 'støtt', 'kommun', 'mål', 'skap', 'godt', 'mestringsklim', 'organisasjon']",1
+"['hr', 'servic', 'årsverk']",0
+"['stabsled', 'hr', 'servic', 'utvikl', 'formidl', 'god', 'enhet', 'arbeidsgiverpolitikk', 'støtt', 'kommun', 'mål', 'skap', 'godt', 'mestringsklim', 'organisasjon']",1
+"['oppgav', 'omfatt', 'lokal', 'forhandling', 'kompetanseutvikling', 'led']",1
+"['helst', 'mastergrad', 'ell', 'tilsvar', 'høyer', 'utdanning', 'hr', 'administrasjon', 'led', 'ell', 'andr', 'relevant', 'fagområd']",3
+"['gjern', 'kompetans', 'arbeidsrett', 'forhandling']",3
+"['vet', 'bygg', 'god', 'relasjon', 'strategisk', 'strukturer']",2
+"['positiv', 'menneskesyn', 'nytenk', 'endringsvil']",2
+['tilby'],0
+"['dersom', 'ønsk', 'navn', 'ikk', 'offentliggjør', 'ber', 'begrunn', 'dett', 'søknadstekst']",0
+"['omsorgstjenest', 'hot']",0
+"['vær', 'selvsagt', 'valg', 'omsorgstjenest', 'oppdragsgiver', 'bruker', 'fokus', 'høy', 'kvalit', 'ønsk', 'rett', 'tiltak', 'rett', 'tid']",0
+"['tua', 'rogaland', 'søk', 'engasjer', 'miljøterapeut', 'arbeid', 'barnevernsavdeling']",1
+"['ped', 'ell', 'sykeplei', 'videreutdanning', 'psykisk', 'hels']",3
+"['rett', 'kandidat', 'får', 'spenn', 'stilling', 'varier', 'arbeidsoppgav']",0
+['søk'],0
+"['søker', 'bør', 'fagkompetans', 'kjemi', 'gjern', 'ell', 'fler', 'fag', 'naturfag', 'biologi', 'matematikk']",3
+"['person', 'egnet', 'sett', 'høyt', 'tilsett', 'nytt', 'personal', 'skol']",0
+"['dett', 'må', 'formell', 'kompetansekrav', 'vær']",3
+"['mør', 'romsdal', 'fylkeskommun', 'benytt', 'elektronisk', 'søknadsbehandling']",0
+"['ansatt', 'må', 'lever', 'politiattest', 'jf']",3
+"['søknad', 'merk', 'realfag']",0
+"['gjeldsforhandling', 'vegn', 'bruk']",1
+"['bistå', 'bruker', 'søk', 'skattebegrensning']",1
+"['ønsk', 'kjennskap', 'gjeldsordning']",3
+"['god', 'munt', 'skrift', 'fremstillingsevn']",3
+"['lønnsplassering', 'lønnstrinn', 'kr']",0
+"['hagegat', 'oslo']",0
+"['annonsør', 'oslo', 'kommun']",0
+"['elektronisk', 'søknadsskjem']",0
+"['hals', 'interkommunal', 'psykiatrisk', 'sent', 'hip']",0
+"['hip', 'ligg', 'liabø', 'hals', 'eies', 'hals', 'surnadal', 'kommun']",0
+"['innebær', 'blant', 'ann', 'innhenting', 'pris', 'valg', 'entreprenør', 'utarbeid', 'budsjett', 'sha']",1
+"['led', 'prosjektgjennomføring', 'forprosjekt', 'ferd', 'bygg']",1
+"['spenn', 'roll', 'oversikt', 'organisasjon', 'godt', 'arbeidsmiljø']",0
+"['kjøring', 'kjøretøy', 'klass', 'c', 'maskinsortering', 'avfall']",1
+"['nedtømming', 'gjenvinningsstasjon']",1
+"['behersk', 'godt', 'norsk', 'båd', 'munt', 'skrift']",3
+"['arbeidsplass', 'engasjer', 'flink', 'medarbeider']",0
+"['annonsør', 'ålesund', 'kommun']",0
+"['jobbnorg', 'id']",0
+"['kf', 'søk', 'entusiastisk', 'kol', 'snar', 'tiltred']",2
+"['stilling', 'inngå', 'arbeidsplan', 'arbeid', 'lørdag', 'mnd']",0
+"['stilling', 'knytt', 'følg', 'arbeidsoppgav']",0
+"['andr', 'oppgav', 'gitt', 'dag', 'led']",0
+"['triv', 'høyt', 'arbeidstempo']",2
+"['lik', 'arbeid', 'mye', 'utendør']",2
+"['lønn', 'gjeld', 'avtaleverk']",0
+"['person', 'bosatt', 'finnmark', 'gis', 'bl']",0
+"['må', 'oppgis', 'minst', 'to', 'referans']",3
+"['aktuell', 'søker', 'innkalt', 'intervju', 'oppmøt', 'ell', 'via', 'skyp']",0
+"['nærmer', 'opplysning', 'stilling', 'fås', 'henvend', 'dag', 'led']",0
+"['e', 'johans', 'tlf']",0
+"['ell', 'mail']",0
+"['godkjent', 'lærerutdanning', 'klassetrinn', 'formalkompetans', 'norsk', 'minimum', 'studiepoeng', 'tilsvar', 'matematikk', 'helst', 'andrespråksdidaktikk', 'ell', 'flerkulturell', 'pedagogikk']",3
+"['annonsør', 'oslo', 'kommun', 'utdanningsetat']",0
+"['elektronisk', 'søknadsskjem']",0
+"['innmelding', 'ajourhold', 'pensjonsordning']",1
+"['søk', 'medarbeid', 'strukturer', 'løsningsorienter', 'tillegg']",2
+"['color', 'rgb']",0
+"['kantin', 'velferdsgrupp', 'rekk', 'velferdsgod', 'treningstilbud']",0
+"['ncc', 'stor', 'bedrift', 'mang', 'mul']",0
+"['led', 'entreprenør', 'nord', 'ncc', 'spesielt', 'stort', 'ansv']",0
+"['mer', 'informasjon', 'enkelt', 'fagområd', 'utdanningsløp', 'finn']",0
+"['registr', 'søknad', 'nedenfor', 'legg', 'person', 'brev', 'beskriv', 'person', 'egenskap']",0
+"['få', 'moglegheit', 'påverk', 'eig', 'karrier', 'utvikling']",0
+"['behov', 'fleir', 'medarbeidar', 'salsavdeling', 'søk', 'salssjef', 'key', 'account', 'internasjonal', 'marked']",1
+"['ansv', 'sal', 'bestemt', 'geografisk', 'marked', 'inklusiv', 'budsjett']",1
+"['ansv', 'tildelt', 'kundeportefølj']",1
+"['følg', 'gjennomfør', 'forhandling', 'kund']",1
+"['god', 'økonomisk', 'forståing', 'erfaring', 'budsjettering', 'rekneskap']",3
+"['erfaring', 'frå', 'forhandling', 'kund']",3
+"['kunnskap', 'spesielt', 'excel']",3
+"['løn', 'avtal']",0
+"['øvr', 'arbeidsvilkår', 'samsv', 'flåm', 'as', 'retningslinj']",0
+"['arbeid', 'består', 'utkjøring', 'konditorvar', 'utstyr', 'produksjonsen', 'tollbugat', 'utsalgssted', 'ekstern', 'kund', 'oslo']",1
+"['må', 'vær', 'presis', 'serviceminded']",2
+"['søknad', 'cv', 'attest', 'referans', 'send', 'e', 'mail']",0
+"['samt', 'stand', 'salgsmess']",0
+"['bodø', 'blant', 'land', 'raskest', 'voks', 'byer', 'passer', 'nyl', 'innbygger']",0
+"['sist', 'åren', 'bodø', 'fått', 'mye', 'oppmerksom', 'båd', 'nasjonalt', 'internasjonalt']",0
+"['utviklingsdirektør', 'sentral', 'målrett', 'konstruktiv', 'samspill', 'næringsliv', 'kunnskapsmiljø', 'kommun']",0
+"['politikk', 'kommuneadministrasjon']",0
+"['let', 'stort', 'engasjement', 'bidr', 'løft', 'vic']",0
+"['hurtigrut', 'ettermiddag', 'kveldstid']",0
+"['fordel', 'ell', 'und', 'utdanning', 'histori', 'ell', 'arkeologi']",3
+"['må', 'behersk', 'munt', 'minimum', 'språk']",3
+"['minimumm', 'søknadsperiod', 'mnd']",0
+"['aktuell', 'søker', 'kontakt']",0
+"['teknisk', 'drift', 'vedlikehaold', 'kraftproduksjonsanlegg', 'avdeling', 'lokaliser', 'matr', 'kvinnherad', 'litledal', 'etn']",0
+"['forvalt', 'fell', 'naturressurs', 'gjev', 'energi', 'att', 'lokalsamfunn']",0
+"['folk', 'tilbyr', 'langsikt', 'god', 'mul', 'hos', 'oppdragsgiver', 'individuell', 'tilpass', 'oppfølging', 'und', 'oppdrag', 'god', 'karrieremu', 'ulik', 'bransj', 'konkurransedykt', 'beting', 'spons', 'treningsavtal', 'hos', 'landsdekk', 'aktør']",0
+"['ser', 'mul', 'kompetans']",0
+"['sult', 'nye', 'utfordring', 'salg', 'jobb', 'norg', 'sterkest', 'merkevar']",1
+"['utkikk', 'deltidsansatt', 'telenorbutikk', 'hvaltorv', 'kjøpesent', 'sandefjord']",0
+"['ambisjon', 'skap', 'egen', 'kultur', 'identit', 'preg', 'retail']",0
+"['salg', 'abonnement', 'produkt', 'tjenest']",1
+"['interess', 'teknisk', 'løsning', 'produkt']",3
+"['utadvend', 'positiv', 'relasjonsbygg', 'egenskap']",2
+"['vilj', 'still', 'kund', 'kollega', 'arbeidsgiv']",2
+"['mul', 'arbeid', 'nyest', 'teknologi']",0
+"['spørsmål', 'vedrør', 'stilling', 'velkomm', 'kontakt', 'rådgiv', 'ell']",0
+"['bistå', 'omorganisering', 'organisasjonsendring']",1
+"['mennesk', 'ulik', 'nivå', 'organisasjon']",0
+"['god', 'formidling', 'egenskap']",2
+"['tilsetting', 'skjer', 'henhold', 'avtal', 'lov', 'regl', 'ansatt', 'tromsø', 'kommun']",0
+"['mul', 'deltidsansatt', 'narves', 'metrosenter']",0
+"['fremfor', 'alt', 'hos', 'først', 'dag', 'viktigst', 'brikk', 'gjør', 'virk', 'sjef', 'fornøyd', 'altså', 'kund']",0
+"['glad', 'mennesk']",1
+"['stød', 'norsk']",3
+"['gjør', 'forstått', 'båd', 'skriv', 'snakk']",2
+"['basiskunnskap', 'ikt']",3
+"['dykt', 'kollega', 'fag', 'kompetans']",0
+"['gir', 'ekstr', 'god', 'opplæring', 'nyutdann', 'sykepleier']",0
+"['kompetansegrupp', 'innenfor', 'ernæring', 'palliasjon', 'sår', 'hygi', 'etikk']",0
+"['elektronisk', 'søknadsskjem']",0
+"['the', 'company', 'is', 'part', 'of', 'the', 'helthjem', 'network']",0
+"['be', 'physically', 'healthy', 'and', 'strong']",3
+"['car', 'allowanc', 'in', 'addition', 'to', 'salary']",0
+"['one', 'year', 'temporary']",0
+"['preferred', 'candidat', 'will', 'also', 'hav']",0
+"['community', 'dp', 'and', 'myp', 'experienc', 'required']",3
+"['fall', 'må', 'les', 'vider']",0
+"['trigg', 'stort', 'fokus', 'utvikl', 'produkt', 'attføringstjenest', 'samsv', 'behov', 'uttrykt', 'marked', 'nav', 'selskap', 'eier']",1
+"['dett', 'spenn', 'stilling', 'rikt', 'kandidat', 'få', 'mul', 'driv', 'utvikl', 'avdeling', 'samm', 'ansatt', 'samt', 'påvirk', 'båd', 'menyvalg', 'konsept']",1
+"['avdeling', 'gir', 'arbeidstrening', 'tilrettelagt', 'arbeid']",0
+"['stilling', 'rapporter', 'dag', 'led', 'inngå', 'selskap', 'ledergrupp']",1
+"['engasjer', 'entusiastisk']",2
+"['uker', 'feri']",0
+"['minimum', 'års', 'relevant', 'erfaring', 'hr', 'fag']",3
+"['søknad', 'behandl', 'fortløp']",0
+"['klikk', 'link', 'denn', 'annons', 'send', 'elektronisk', 'søknad']",0
+"['elektronisk', 'søknadsskjem']",0
+"['presentasjon', 'stilling']",0
+"['all', 'klass', 'digital', 'klasserom']",0
+"['vurdering', 'læring', 'clil', 'content', 'and']",0
+"['utstrakt', 'lærersamarbeid']",0
+"['unikt', 'diss', 'klass', 'voksn', 'deltagern', 'lærling', 'aller', 'vg']",0
+"['oslo', 'vo', 'helsfyr', 'profesjonell', 'engasjer', 'inkluder']",2
+"['samarbeid', 'nav', 'bydel', 'sikr', 'deltaker', 'behov', 'språkpraksisplass']",1
+"['god', 'samarbeid', 'gjør', 'andr', 'god']",2
+"['tålmod', 'samtid', 'ambisjon', 'vegn', 'deltaker']",2
+"['reisevirksom', 'må', 'påregn']",0
+"['forretningsorienter', 'opptatt', 'skap', 'dokumenterbar', 'resultat']",2
+"['jobb', 'aktiv', 'produktområd', 'varmepump', 'solvarm']",1
+"['lag', 'beregn', 'tilbud', 'anbud', 'samt', 'oppfølging']",1
+"['interess', 'alternativ', 'energi', 'fremtid', 'produkt']",2
+"['trygg', 'samt', 'tyd', 'direkt']",2
+"['autostor', 'god', 'vekst', 'spenn', 'fremtid', 'møt']",0
+"['anledning', 'ønsk', 'selskap', 'ansett']",0
+"['utvikling', 'testing', 'eksperimentering']",1
+"['del', 'unikt', 'spenn', 'kompetent', 'fag']",0
+"['arbeidssted', 'vårt', 'hovedkontor', 'vis', 'interess', 'stilling', 'registrer', 'cv', 'søknad', 'snarest', 'via', 'annonselenk']",0
+"['overfor', 'oppdragsgiv', 'innled', 'fas', 'dersom', 'ønsk']",0
+"['provid', 'feedback', 'on', 'a', 'daily', 'basis', 'to', 'the', 'team', 'and', 'acm', 'on', 'new', 'emerging', 'issu', 'that', 'hav', 'identified', 'and', 'work', 'to', 'proactively', 'highlight', 'are', 'that', 'need', 'to', 'be', 'improved']",1
+"['vær', 'form', 'fremtid', 'byer', 'samfunn']",1
+"['sweco', 'sted']",0
+"['består', 'kontor', 'ham', 'gjøvik', 'lillehamm']",0
+"['dett', 'totalentrepris', 'samm', 'veidekk']",0
+"['arbeidsoppgav', 'omfatt']",0
+"['detaljplan', 'anbudsgrunnlag']",1
+"['utvikl', 'følg', 'medarbeider', 'fag', 'prosjekt']",1
+"['års', 'erfaring', 'god', 'skussmål', 'vurder']",0
+['kund'],0
+"['opptatt', 'finn', 'løsning', 'foren', 'teknikk', 'miljø']",2
+"['ansvarsfull', 'utvikl', 'interessant', 'oppgav', 'spenn', 'prosjekt']",0
+"['fruktbart', 'samarbeid', 'øvr', 'sweco']",0
+"['hotell', 'del']",0
+"['unik', 'beliggen', 'sentrum', 'dykt', 'stab', 'ca', 'ansatt']",0
+"['søk', 'person']",0
+"['vær', 'vikariat', 'båd', 'kort', 'lengr', 'oppdrag']",0
+"['jakt', 'fysisk', 'god', 'form', 'ikk', 'redd', 'ta', 'tak']",2
+"['fysisk', 'arbeid', 'anlegg', 'ell', 'byggeplass']",1
+"['und', 'bodø']",0
+"['vurdering', 'kandidat', 'vektlegg', 'diss', 'egenskap']",0
+"['endring', 'arbeidssted', 'innenfor', 'namsfogdområd', 'må', 'påregn', 'følg', 'politireform']",0
+"['politi', 'åpen', 'inkluder', 'etat']",0
+"['målsetting', 'kjønnsbalans', 'lederstilling', 'oppfordr', 'kvinn', 'søk']",0
+"['sørg', 'høy', 'kvalit', 'effektiv', 'ressursutnytt', 'samarbeid', 'måloppnå', 'tjenesteproduksjon', 'samarbeid', 'geografisk', 'tjenesteen']",1
+"['godt', 'helhet', 'blikk', 'evn', 'strategisk', 'langsikt', 'arbeid']",2
+"['led', 'fast', 'stilling', 'avdelingsled', 'fellestjenest', 'nav', 'famili']",1
+"['dokumentbehandling', 'dekk', 'fler', 'ytelsesområd']",0
+"['team', 'klargjør', 'skann', 'dokument', 'fagsystem', 'nav', 'oppfølging', 'midlertid', 'arkiv', 'samt', 'øvr', 'merkantil', 'oppgav']",1
+"['må', 'behersk', 'ikt', 'verktøy', 'godt']",3
+"['ønsk', 'erfaring', 'arkivarbeid', 'god', 'kjennskap', 'arkiv']",3
+"['ønsk', 'erkjenn', 'godt', 'arbeidsmiljø', 'vikt', 'lykk', 'enhet', 'mål', 'evn', 'skap', 'kultur', 'dett']",2
+"['tar', 'initativ', 'proaktiv', 'vis', 'handlekraft']",2
+"['dynamisk', 'arbeidsplass', 'hel', 'tid', 'utvikl', 'best', 'bruker', 'samfunn']",0
+"['god', 'pensjonsordning', 'gjennom']",0
+"['dersom', 'ønsk', 'unnt', 'offent', 'søkerlist', 'må', 'begrunn', 'anmodning', 'unntak']",0
+"['can', 'manag', 'the', 'floor', 'ensuring', 'the', 'team', 'are', 'fully', 'trained', 'in', 'all', 'aspect', 'of', 'servic']",1
+"['has', 'experienc', 'in', 'developing', 'peopl', 'to', 'their', 'potential']",3
+"['has', 'experienc', 'of', 'controlling', 'budg', 'and', 'labour', 'cost']",3
+"['to', 'grow', 'the', 'business']",0
+"['erfaring', 'arbeid', 'barn']",3
+"['erfaring', 'sport', 'friluftsliv', 'musikk', 'ell', 'teat', 'pluss']",3
+"['fleksibel', 'kunn', 'still', 'kort', 'varsel']",2
+"['fokus', 'barn', 'behov']",
+"['bidr', 'barn', 'utfold', 'mestring']",1
+"['bestemm', 'mye', 'jobb']",0
+"['opplæringskontor', 'fag', 'offent', 'sektor', 'hadeland']",0
+['ungdomsarbeid'],1
+"['læreplass', 'lunn', 'jevnak']",0
+"['administrasjonsfag', 'læreplass', 'lunn', 'kommun']",0
+"['søker', 'læreplass', 'må', 'legg', 'attest', 'vitnemål', 'vg', 'vg', 'samt', 'referans', 'års', 'terminkarakt', 'vg', 'fortsatt', 'elev']",3
+"['ungdomsarbeiderfag', 'ell', 'helsearbeiderfag', 'må', 'lever', 'tilfredsstill', 'politiattest', 'vandelsattest', 'tiltred']",3
+"['lærling', 'lønn', 'fagarbeiderlønn', 'gjennom', 'hel', 'læretid', 'år']",0
+"['søknad', 'send', 'via', 'vårt', 'elektronisk', 'søknadssystem']",0
+"['dersom', 'behov', 'hjelp', 'dett', 'ta', 'kontakt', 'vårt', 'servicetorg']",0
+"['as', 'øker', 'oppdragsmengd', 'ser']",0
+"['denn', 'anledning', 'ny', 'medarbeid', 'produksjon', 'bergensbunad']",0
+"['jobb', 'tett', 'andr', 'ansatt']",0
+"['forholdvis', 'lit', 'bedrift', 'foreløp', 'ti', 'ansatt', 'familiebedrift']",0
+"['nødvend', 'mestr', 'van', 'programvar', 'datamaskin', 'må', 'påregn']",3
+"['del', 'loggføring', 'oppdatering', 'vårt', 'datasystem']",1
+"['treng', 'ing', 'formell']",0
+"['bruk', 'van', 'pc']",0
+"['må', 'vær', 'tålmod', 'tål', 'opplæring', 'tar', 'tid']",2
+"['høysesong', 'janu', 'mai', 'august', 'septemb']",0
+"['informasjon', 'stilling']",0
+"['ell', 'linkedin', 'nevn', 'arbeidsverktøy', 'bruk']",1
+"['avtal', 'møt', 'beslutningstaker', 'selskap', 'prospekter']",1
+"['dett', 'vær', 'avdelingsleder', 'ell', 'bedriftsleder']",0
+"['oppfølging', 'eksister', 'kund']",1
+['søk'],0
+"['salg', 'langsikt', 'perspektiv', 'roll']",2
+"['søknadsfrist', 'mar', 'ambisjon', 'ta', 'end', 'beslutning', 'uke']",0
+"['ivaret', 'hag', 'uterom']",1
+"['selvstend', 'strukturer', 'resultatorienter']",2
+"['utadvend', 'positiv', 'evn', 'takl', 'hektisk', 'period']",2

@@ -1,8 +1,8 @@
 #  main solution procedure
 from src.Descript_cleaner import clean_ad_description
-from src.make_training_set import tokenize_description
+from src.make_label_set import tokenize_description
 from src.preprocessor import pre_process_sentence
-from src.naive_bayes import get_class_random
+from src.naive_bayes import get_class_naive_bayes
 import pandas as pd
 
 
@@ -27,7 +27,7 @@ def classify_ad(ad):  # ad is a list of two dataframes, struct and descript
     sentences = tokenize_description(clean_desc)
     vectors = preprocess(sentences)
     for sentence, vector in vectors.items():
-        category = get_class_random(vector)
+        category = get_class_naive_bayes(vector)
         row = {"Stilling id": stilling_id_, 'Registrert dato': ad_date,
                "Yrke grovgruppe": job_group, "Setning": sentence, 'Pros. Setning': vector, "Kategori": category}
         result = result.append(row, ignore_index=True)
