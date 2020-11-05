@@ -14,20 +14,18 @@ def preprocess(sentences):
     return vectors_dict
 
 
-def classify_ad(ad):  # ad is a list of two dataframes, struct and descript
-    struct_df = ad[0]
-    descript_df = ad[1]
+def classify_ad(model, ad):  # ad is a row from aggregated dataframe in main
     result = pd.DataFrame(
         columns=['Stilling id', 'Registrert dato', 'Yrke grovgruppe', 'Setning', 'Pros. Setning', 'Kategori'])
-    description = descript_df.iloc[0, 3]
-    stilling_id_ = descript_df.iloc[0, 1]
-    ad_date = struct_df.iloc[0, struct_df.columns.get_loc("Registrert dato")]
-    job_group = struct_df.iloc[0, struct_df.columns.get_loc("Yrke grovgruppe")]
+    stilling_id_ = ad[0]
+    description = ad[1]
+    ad_date = ad[2]
+    job_group = ad[5]
     clean_desc = clean_ad_description(description)
     sentences = tokenize_description(clean_desc)
     vectors = preprocess(sentences)
     for sentence, vector in vectors.items():
-        category = get_class_naive_bayes(vector)
+        category = get_class_naive_bayes(vector, model)
         row = {"Stilling id": stilling_id_, 'Registrert dato': ad_date,
                "Yrke grovgruppe": job_group, "Setning": sentence, 'Pros. Setning': vector, "Kategori": category}
         result = result.append(row, ignore_index=True)
@@ -42,8 +40,8 @@ if __name__ == '__main__':
     df_struct = pd.read_csv(path_struct, sep=";")
     df_descript = df_descript.tail(1)
     df_struct = df_struct.loc[df_struct["Stilling id"] == stilling_id]
-    ad = [df_struct, df_descript]
-    labeled_ad = classify_ad(ad)
+    ad_ = [df_struct, df_descript]
+    labeled_ad = classify_ad(ad_)
 
     ad_id = 1
     labeled_ad.to_csv("..\\data\\output\\labeled_ad_" + str(ad_id) + ".csv", index=False)
