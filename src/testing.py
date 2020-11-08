@@ -1,2 +1,4 @@
-for i in range(1, len([1, 2, 3])):
-    print(i)
+from ast import literal_eval
+list_test = "['arbeidsoppgav', 'bestå', 'ulik', 'oppgav', 'hel', 'butikk']"
+list_new = literal_eval(list_test)
+print(list_new)

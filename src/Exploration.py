@@ -4,6 +4,9 @@ import os
 from pathlib import Path
 from csv import reader
 import matplotlib.pyplot as plt
+import datetime
+from src.make_results import get_df_filtered_on_industry_and_region
+from src.make_results import get_region_list
 
 
 struct_paths = sorted(Path("../data/input/struct").iterdir())  # list all structured datasets paths
@@ -171,12 +174,64 @@ def delete_empty_descript_rows():
             descript_df.to_csv(d, sep=",", index=False)
 
 
+def view_numbers_of_ads_each_week(year, industries, region_list):
+    regions = get_region_list(region_list)
+    p = ""
+    for path in struct_paths:
+        p_list = str(path).split(sep="\\")
+        if int(p_list[-1][0:4]) == year:
+            p = path
+    ind_part = "All ads" if len(industries) == 0 else "_".join(industries)
+    reg_part = "all regions" if len(region_list) == 0 else "_".join(region_list)
+    directory = "..\\data\\output"
+    result_path = directory + "\\ads_per_week_{}_{}_{}.csv".format(year, ind_part, reg_part)
+    already_calculated = result_path in [str(p) for p in sorted(Path(directory).iterdir())]
+    already_calculated = False # REMOVE
+    if already_calculated:
+        ads_per_week_df = pd.read_csv(result_path)
+    else:
+        df = pd.read_csv(p, sep=";")
+        df = get_df_filtered_on_industry_and_region(industries, regions, df)
+        df.to_csv("..\\data\\output\\ads_2018_butikk_nordland_explo.csv", sep=",", index=False)
+        date_format = "%Y-%m-%d"
+        df['Registrert dato'] = pd.to_datetime(df['Registrert dato'], format=date_format)
+        df['Registrert dato'] = df['Registrert dato'].dt.date
+        start = datetime.date(year, 1, 1)
+        end = datetime.date(year, 12, 31)
+        date_list = [start + datetime.timedelta(days=x) for x in range(0, (end - start).days+1)]
+        ads_per_week_df = pd.DataFrame(columns=["Week", "Date", "Ads"])
+        for i in range(52):
+            idx = range(i * 7, i * 7 + 7)
+            week_dates = [date_list[i] for i in idx]
+            start = np.datetime64(week_dates[0])
+            end = np.datetime64(week_dates[-1])
+            week_df = df[(df['Registrert dato'] >= start) & (df['Registrert dato'] <= end)]
+            print("Week " + str(i+1) + ", ads: " + str(len(week_df)))
+            number_of_ads = len(week_df)
+            row = {"Week": i+1, "Date": start, "Ads": number_of_ads}
+            ads_per_week_df = ads_per_week_df.append(row, ignore_index=True)
+        ads_per_week_df.to_csv(result_path, sep=",", index=False)
+    plt.bar(ads_per_week_df["Week"], ads_per_week_df["Ads"], label=ind_part + " in " + reg_part)
+    plt.title("Struct. ads per week {}".format(year), pad=10)
+    plt.ylabel("Amount", labelpad=8)
+    plt.xlabel("Week No.")
+    max_y = max(ads_per_week_df["Ads"])
+    plt.ylim(0, max_y*1.1)
+    plt.tight_layout()
+    plt.legend(loc="upper right")
+    plot_path_fig = "..\\plots\\Numbers\\ads_per_week_{}_{}_{}.png".format(year, ind_part, reg_part)
+    plt.savefig(plot_path_fig)
+    plt.show()
+
+
 if __name__ == '__main__':
     print("Running method ...")
+    # view_numbers_of_ads_each_week(2017, ["Ingeniør- og ikt-fag"], ["Trøndelag"])
+    view_numbers_of_ads_each_week(2018, ["Butikk- og salgsarbeid"], ["Nordland"])
     # view_ads_count_from_to(2018, 2020)
     # view_all_struct_col_names(2020)
     # view_all_descript_col_names(2019)
-    view_n_first_descriptions_year(3, 2018)
+    # view_n_first_descriptions_year(3, 2018)
     # verify_descript_relates_to_struct()
     # delete_empty_descript_rows()
 

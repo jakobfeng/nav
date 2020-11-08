@@ -17,10 +17,10 @@ def preprocess(sentences):
 def classify_ad(model, ad):  # ad is a row from aggregated dataframe in main
     result = pd.DataFrame(
         columns=['Stilling id', 'Registrert dato', 'Yrke grovgruppe', 'Setning', 'Pros. Setning', 'Kategori'])
-    stilling_id_ = ad[0]
-    description = ad[1]
-    ad_date = ad[2]
-    job_group = ad[5]
+    stilling_id_ = ad["Stilling id"]
+    description = ad["Stillingsbeskrivelse vasket"]
+    ad_date = ad["Registrert dato"]
+    job_group = ad["Yrke grovgruppe"]
     clean_desc = clean_ad_description(description)
     sentences = tokenize_description(clean_desc)
     vectors = preprocess(sentences)
