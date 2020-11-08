@@ -34,7 +34,9 @@ def create_results(industry_list, regions, start, end, classes, path):
         region_list = get_region_list(regions)
         df = get_df_within_interval(start, end)
         df = get_df_filtered_on_industry_and_region(industry_list, region_list, df)
-        df.to_csv("..\\data\\output\\ads_2018_butikk_nordland.csv")
+        max_ads = 500
+        if len(df) > max_ads:
+            df = df.sample(n=max_ads, random_state=1)
         print("Number of ads to classify: {}\n".format(len(df)))
         result_df = pd.DataFrame(
             columns=['Stilling id', 'Registrert dato', 'Yrke grovgruppe', 'Setning', 'Pros. Setning', 'Kategori'])
@@ -103,7 +105,6 @@ def get_df_within_interval(start, end):
     for i in range(1, len(df_years_struct)):
         df_struct = df_struct.append(df_years_struct[i], ignore_index=True)
         df_descript = df_descript.append(df_years_descript[i], ignore_index=True)
-    print("Length of descript: {}, length of struct: {}".format(len(df_descript), len(df_struct)))
     df = pd.merge(df_descript, df_struct, on="Stilling id", how="inner")
     df = df[df["Stillingsbeskrivelse vasket"].notna()]
     date_format = "%Y-%m-%d"
@@ -154,7 +155,7 @@ def get_start_and_end_date(year, month, months_lookback):
     return start, end
 
 
-# # Method for plotting word clouds ----------------------------------------------------
+# Method for plotting word clouds ----------------------------------------------------
 def plot_word_cloud_from_dict(df, classes, industry_list, regions, start, end, path):
     max_ads = 2000
     if len(df) > max_ads:
@@ -190,7 +191,8 @@ def get_dir_for_plots(industry_list, regions, start, end):
 def get_word_count_dictionary(class_df):
     freq_count = {}
     for index, row in class_df.iterrows():
-        print("Word freq. ad no. " + str(index+1))
+        if index % 50 == 0:
+            print("Word freq. ad no. " + str(index+1))
         sentence = row["Setning"]
         tok_sentence = pre_tokenize(sentence)
         for word in tok_sentence:

@@ -52,7 +52,7 @@ def get_personal_words_removal_list():
                     "ulike", "sette", "oppgavene", "relevant", "ønskelig", "samt", "primært", "utføre", "gjennomføre",
                     "hovedoppgave", "stor", "godt", "andre", "høy", "ta", "m", "liker", "fordel", "annen", "kjennskap",
                     "sørge", "blant", "behov", "følges", "bistå", "delta", "herunder", "eksisterende", "av", "års",
-                    "samtidig", "arbeidsoppgaver", "viktigste"]
+                    "samtidig", "arbeidsoppgaver", "viktigste", "alltid", "ser", "del", "c", "bør"]
     english_rem_word = ["and", "or", "of", "in", "b", "be", "good", "with", "will", "years", "d", "have", "well", "the",
                         "to"]
     total_list = removal_list + english_rem_word
