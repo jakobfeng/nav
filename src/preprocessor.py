@@ -8,7 +8,7 @@ from sklearn.preprocessing import LabelEncoder
 
 
 stemmer = NorwegianStemmer()
-stopwords = stopwords.words('norwegian')
+stopwords = stopwords.words('norwegian', 'english')
 Encoder = LabelEncoder()  # do more research?
 
 
@@ -49,8 +49,14 @@ def get_personal_words_removal_list():
     removal_list = ["du", "gode", "gjerne", "må", "lang", "innen", "innenfor", "minimum", "år", "har", "tilsvarende",
                     "bruk", "vi", "beherske", "person", "as", "våre", "kunne", "håndtere", "enhver", "tar",
                     "avdeling", "knyttet", "jobbe", "arbeid", "evne", "søk", "kontakt", "kanal", "dager", "bidra",
-                    "ulike", "sette", "oppgavene", "relevant"]
-    return removal_list
+                    "ulike", "sette", "oppgavene", "relevant", "ønskelig", "samt", "primært", "utføre", "gjennomføre",
+                    "hovedoppgave", "stor", "godt", "andre", "høy", "ta", "m", "liker", "fordel", "annen", "kjennskap",
+                    "sørge", "blant", "behov", "følges", "bistå", "delta", "herunder", "eksisterende", "av", "års",
+                    "samtidig", "arbeidsoppgaver", "viktigste"]
+    english_rem_word = ["and", "or", "of", "in", "b", "be", "good", "with", "will", "years", "d", "have", "well", "the",
+                        "to"]
+    total_list = removal_list + english_rem_word
+    return total_list
 
 
 def get_geo_words():
