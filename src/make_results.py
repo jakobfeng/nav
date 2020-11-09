@@ -131,7 +131,7 @@ def verify_valid_dates(start, end):
 
 
 # Helping method for returning list of current + old region names
-def get_region_list(region):
+def get_region_list(region_list):
     updated_regions = []
     region_update_dict = {"Agder": ["Vest-Agder", "Aust-Agder"], "Vestland": ["Hordaland", "Sogn og Fjordane"],
                           "Vestfold og Telemark": ["Vestfold", "Telemark"], "Innlandet": ["Hedmark", "Oppland"],
@@ -139,7 +139,7 @@ def get_region_list(region):
                           "Trøndelag": ["Sør-Trøndelag", "Nord-Trøndelag"],
                           "Troms og Finnmark": ["Troms", "Finnmark"]}
     regions_needing_update = list(region_update_dict.keys())
-    for r in region:
+    for r in region_list:
         updated_regions.append(r)
         if r in regions_needing_update:
             updated_regions.extend(region_update_dict[r])

@@ -1,4 +1,8 @@
-from ast import literal_eval
-list_test = "['arbeidsoppgav', 'bestå', 'ulik', 'oppgav', 'hel', 'butikk']"
-list_new = literal_eval(list_test)
-print(list_new)
+import matplotlib.pyplot as plt
+x = ["A", "B", "C", "D"]
+y = [1, 2, 3, 4]
+plt.barh(x, y)
+
+for index, value in enumerate(y):
+    plt.text(value, index, str(value))
+plt.show()
