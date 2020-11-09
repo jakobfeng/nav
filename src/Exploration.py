@@ -3,11 +3,12 @@ import numpy as np
 import os
 from pathlib import Path
 from csv import reader
+from scipy import stats
 import matplotlib.pyplot as plt
 import datetime
 from src.make_results import get_df_filtered_on_industry_and_region
 from src.make_results import get_region_list
-
+from src.run import get_regions
 
 struct_paths = sorted(Path("../data/input/struct").iterdir())  # list all structured datasets paths
 descript_paths = sorted(Path("../data/input/descript_cl").iterdir())  # list all descriptive datasets paths
@@ -60,12 +61,7 @@ def view_ads_count_from_to(from_year, to_year):
 
 
 def view_all_descript_col_names(year):
-    p = ""
-    for path in descript_paths:
-        p_list = str(path).split(sep="\\")
-        if int(p_list[-1][0:4]) == year:
-            p = path
-
+    p = get_path_type_year("d", year)
     with open(p, 'r') as read_obj:
         csv_reader = reader(read_obj, delimiter=",")
         header_string = next(csv_reader)
@@ -80,12 +76,7 @@ def view_all_descript_col_names(year):
 
 
 def view_all_struct_col_names(year):
-    p = ""
-    for path in struct_paths:
-        p_list = str(path).split(sep="\\")
-        if int(p_list[-1][0:4]) == year:
-            p = path
-
+    p = get_path_type_year("s", year)
     with open(p, 'r') as read_obj:
         csv_reader = reader(read_obj, delimiter=";")
         header_string = next(csv_reader)
@@ -101,11 +92,7 @@ def view_all_struct_col_names(year):
 
 def view_n_first_descriptions_year(n, year):
     print(str("\n--------View {} first job ads descriptions from {}----------\n").format(n, year))
-    p = ""
-    for path in descript_paths:
-        p_list = str(path).split(sep="\\")
-        if int(p_list[-1][:4]) == year:
-            p = path
+    p = get_path_type_year("d", year)
     df = pd.read_csv(p, header=0, sep=",", nrows=n)
     descriptions = {}
     for row in df.iterrows():
@@ -176,17 +163,12 @@ def delete_empty_descript_rows():
 
 def view_numbers_of_ads_each_week(year, industries, region_list):
     regions = get_region_list(region_list)
-    p = ""
-    for path in struct_paths:
-        p_list = str(path).split(sep="\\")
-        if int(p_list[-1][0:4]) == year:
-            p = path
+    p = get_path_type_year("s", year)
     ind_part = "All ads" if len(industries) == 0 else "_".join(industries)
     reg_part = "all regions" if len(region_list) == 0 else "_".join(region_list)
     directory = "..\\data\\output"
     result_path = directory + "\\ads_per_week_{}_{}_{}.csv".format(year, ind_part, reg_part)
     already_calculated = result_path in [str(p) for p in sorted(Path(directory).iterdir())]
-    already_calculated = False # REMOVE
     if already_calculated:
         ads_per_week_df = pd.read_csv(result_path)
     else:
@@ -198,7 +180,7 @@ def view_numbers_of_ads_each_week(year, industries, region_list):
         df['Registrert dato'] = df['Registrert dato'].dt.date
         start = datetime.date(year, 1, 1)
         end = datetime.date(year, 12, 31)
-        date_list = [start + datetime.timedelta(days=x) for x in range(0, (end - start).days+1)]
+        date_list = [start + datetime.timedelta(days=x) for x in range(0, (end - start).days + 1)]
         ads_per_week_df = pd.DataFrame(columns=["Week", "Date", "Ads"])
         for i in range(52):
             idx = range(i * 7, i * 7 + 7)
@@ -206,9 +188,9 @@ def view_numbers_of_ads_each_week(year, industries, region_list):
             start = np.datetime64(week_dates[0])
             end = np.datetime64(week_dates[-1])
             week_df = df[(df['Registrert dato'] >= start) & (df['Registrert dato'] <= end)]
-            print("Week " + str(i+1) + ", ads: " + str(len(week_df)))
+            print("Week " + str(i + 1) + ", ads: " + str(len(week_df)))
             number_of_ads = len(week_df)
-            row = {"Week": i+1, "Date": start, "Ads": number_of_ads}
+            row = {"Week": i + 1, "Date": start, "Ads": number_of_ads}
             ads_per_week_df = ads_per_week_df.append(row, ignore_index=True)
         ads_per_week_df.to_csv(result_path, sep=",", index=False)
     plt.bar(ads_per_week_df["Week"], ads_per_week_df["Ads"], label=ind_part + " in " + reg_part)
@@ -216,7 +198,7 @@ def view_numbers_of_ads_each_week(year, industries, region_list):
     plt.ylabel("Amount", labelpad=8)
     plt.xlabel("Week No.")
     max_y = max(ads_per_week_df["Ads"])
-    plt.ylim(0, max_y*1.1)
+    plt.ylim(0, max_y * 1.1)
     plt.tight_layout()
     plt.legend(loc="upper right")
     plot_path_fig = "..\\plots\\Numbers\\ads_per_week_{}_{}_{}.png".format(year, ind_part, reg_part)
@@ -224,14 +206,189 @@ def view_numbers_of_ads_each_week(year, industries, region_list):
     plt.show()
 
 
+def plot_word_amount_each_analysis_year(year):
+    print("\nCalculating word count for ad descriptions in {}...".format(year))
+    directory = "..\\data\\output"
+    result_path = directory + "\\desc_word_count_{}.csv".format(year)
+    already_calculated = result_path in [str(p) for p in sorted(Path(directory).iterdir())]
+    if already_calculated:
+        df = pd.read_csv(result_path, sep=",")
+    else:
+        p = get_path_type_year("d", year)
+        df = pd.read_csv(p, sep=",", header=0)
+        df = df.sample(n=10000, random_state=1)
+        df['Antall ord'] = df['Stillingsbeskrivelse vasket'].str.split().str.len()
+        df = df[["Stilling Id", "Antall ord"]]
+        df.to_csv(result_path, sep=",", index=False)
+    data = df["Antall ord"]
+    mean = data.mean()
+    params = stats.exponweib.fit(data, floc=0, f0=1)
+    shape = params[1]
+    scale = params[3]
+    values, bins, hist = plt.hist(data, bins=40, range=(0, max(data)), density=True, label="Number of ads")
+    center = (bins[:-1] + bins[1:]) / 2
+    plt.plot(center, stats.exponweib.pdf(center, *params), lw=4, label='Weibell estimation')
+    plt.xlabel("Number of Words", labelpad=8)
+    plt.gca().yaxis.set_visible(False)
+    plt.legend(loc="upper right")
+    footnote = "Mean {}, shape {}, scale {}".format(round(mean, 1), round(shape, 2), round(scale, 1))
+    plt.gcf().text(0.64, 0.78, footnote, fontsize=8)
+    plt.title("Ad Description Word Count {}".format(year))
+    plt.tight_layout()
+    plot_path_fig = "..\\plots\\exploratory\\description_word_amount{}.png".format(year)
+    plt.savefig(plot_path_fig)
+    plt.show()
+
+
+def plot_number_of_ads_hist_all_years():
+    print("\nPlotting ad count each year..")
+    directory = "..\\data\\output"
+    result_path = directory + "\\number_of_ads_all_years_df.csv"
+    already_calculated = result_path in [str(p) for p in sorted(Path(directory).iterdir())]
+    if already_calculated:
+        result_df = pd.read_csv(result_path, sep=",")
+    else:
+        result_df = pd.DataFrame(columns=["Year", "Struct", "Descript", "Both"])
+        for year in range(2013, 2019):
+            print("Calculating data for {}".format(year))
+            s_path = get_path_type_year("s", year)
+            d_path = get_path_type_year("d", year)
+            s_df = pd.read_csv(s_path, sep=";", usecols=["Stilling id"])
+            d_df = pd.read_csv(d_path, sep=",", usecols=["Stilling Id"])
+            d_df = d_df.rename(columns={"Stilling Id": "Stilling id"})
+            both_df = pd.merge(s_df, d_df, on="Stilling id", how="inner")
+            row = {"Year": year, "Struct": len(s_df), "Descript": len(d_df), "Both": len(both_df)}
+            result_df = result_df.append(row, ignore_index=True)
+        result_df.to_csv(result_path, sep=",", index=False)
+        print("Results save to file {}".format(result_path))
+    labels = [year for year in range(2013, 2019)]
+    div_factor = 1000
+    struct_count = [row["Struct"] for id, row in result_df.iterrows()]
+    struct_count = [amount // div_factor for amount in struct_count]
+    descript_count = [row["Descript"] for id, row in result_df.iterrows()]
+    descript_count = [amount // div_factor for amount in descript_count]
+    both_count = [row["Both"] for id, row in result_df.iterrows()]
+    both_count = [amount // div_factor for amount in both_count]
+    bar_width = 0.25
+    r1 = np.arange(len(labels))
+    r2 = [x + bar_width for x in r1]
+    r3 = [x + bar_width for x in r2]
+    plt.bar(r1, struct_count, width=bar_width, edgecolor='white', label='Structured')
+    plt.bar(r2, descript_count, width=bar_width, edgecolor='white', label='Descriptive')
+    plt.bar(r3, both_count, width=bar_width, edgecolor='white', label='Struct. ∩ Descript.')
+    plt.ylabel('Amount (x 1000)', labelpad=8)
+    plt.xlabel('Year')
+    plt.title('Number of ads 2013-2018')
+    plt.xticks([r + bar_width for r in range(len(labels))], labels)
+    plt.legend()
+    plt.tight_layout()
+    out_path_fig = "..\\plots\\exploratory\\number_of_ads_hist_all_years.png"
+    plt.savefig(out_path_fig)
+    plt.show()
+
+
+def plot_hist_amount_of_ads_all_industries(year, region_list):
+    print("\nCalculating ad count each industry for {}...".format(year))
+    directory = "..\\data\\output"
+    if len(region_list) == 0:
+        result_path = directory + "\\struct_count_per_industry_{}.csv".format(year)
+        label = "All regions"
+        out_path = "..\\plots\\exploratory\\ads_per_industry_{}.png".format(year)
+    else:
+        result_path = directory + "\\struct_count_per_industry_{}_{}.csv".format(year, "_".join(region_list))
+        label = ", ".join(region_list)
+        out_path = "..\\plots\\exploratory\\ads_per_industry_{}_{}.png".format(year, "_".join(region_list))
+    already_calculated = result_path in [str(p) for p in sorted(Path(directory).iterdir())]
+    if already_calculated:
+        df = pd.read_csv(result_path, sep=",")
+    else:
+        s_path = get_path_type_year("s", year)
+        df = pd.read_csv(s_path, sep=";", usecols=["Stilling id", "Yrke grovgruppe", "Arbeidssted fylke"])
+        regions = get_region_list(region_list)
+        df = get_df_filtered_on_industry_and_region([], regions, df)
+        df = df.groupby(['Yrke grovgruppe']).size().reset_index(name='counts')
+        df.to_csv(result_path, sep=",", index=False)
+    div_factor = 1000
+    df["counts"] = [c/div_factor for c in df["counts"].tolist()]
+    plt.bar(df["Yrke grovgruppe"], df["counts"], label=label)
+    xticks = ["Akademia", "Barn", "Butikk", "Bygg", "Helse", "Inudstri", "Ingen data", "Ingeniør", "Primær", "Kontor", "Ledere", "Meglere", "Reise", "Service", "Lærere"]
+    plt.xticks(range(len(df)), xticks, rotation=90)
+    plt.title("Number of ads per industry in {}".format(year))
+    plt.ylabel("Amount (x {})".format(div_factor), labelpad=8)
+    plt.legend(loc="upper right")
+    #for i, v in enumerate(df["counts"].tolist()):
+        #plt.text(i, v+0.03, str(round(v, 1)), color="blue", fontweight='bold', size=8, ha='center')
+    plt.tight_layout()
+    plt.savefig(out_path)
+    plt.show()
+    plt.close()
+
+
+def plot_hist_amount_of_ads_all_regions(year):
+    print("\nCalculating ad count each region for {}...".format(year))
+    region_dict = get_regions()
+    directory = "..\\data\\output"
+    result_path = directory + "\\struct_count_per_region_{}.csv".format(year)
+    already_calculated = result_path in [str(p) for p in sorted(Path(directory).iterdir())]
+    if already_calculated:
+        df = pd.read_csv(result_path, sep=",")
+    else:
+        s_path = get_path_type_year("s", year)
+        df_all = pd.read_csv(s_path, sep=";", usecols=["Stilling id", "Arbeidssted fylke"])
+        df_grouped = df_all.groupby(['Arbeidssted fylke']).size().reset_index(name='counts')
+        df = pd.DataFrame()
+        for region in region_dict.values():
+            regions = get_region_list([region])
+            if len(regions) > 1:
+                regions.remove(region)
+            ad_number = 0
+            for r in regions:
+                r_counts = int(df_grouped[df_grouped["Arbeidssted fylke"] == r]["counts"])
+                ad_number += r_counts
+            row = {'Arbeidssted fylke': region, "counts": ad_number}
+            df = df.append(row, ignore_index=True)
+        df.to_csv(result_path, sep=",", index=False)
+    div_factor = 1000
+    df["counts"] = [c / div_factor for c in df["counts"].tolist()]
+    plt.barh(df["Arbeidssted fylke"], df["counts"], color="orange")
+    plt.title("Number of ads per region in {}".format(year))
+    plt.xlabel("Amount (x {})".format(div_factor), labelpad=8)
+    yticks = ["Troms og Finm.", "Nordland", "Trøndelag", "Mør. og Roms.", "Vestland", "Rogaland", "Agder", "Vestf. og Tele.", "Viken", "Oslo", "Innlandet"]
+    plt.yticks(range(len(df)), yticks)
+    plt.xlim(0, max(df["counts"])*1.1)
+    for i, v in enumerate(df["counts"].tolist()):
+        plt.text(v+0.4, i-0.2, str(round(v, 1)), color="orange", fontweight='bold')
+    plt.tight_layout()
+    out_path = "..\\plots\\exploratory\\ads_per_region_{}.png".format(year)
+    plt.savefig(out_path)
+    plt.show()
+
+
+
+def get_path_type_year(type, year):
+    if type == "d":
+        paths = descript_paths
+    elif type == "s":
+        paths = struct_paths
+    p = ""
+    for path in paths:
+        p_list = str(path).split(sep="\\")
+        if int(p_list[-1][0:4]) == year:
+            p = path
+    return p
+
+
 if __name__ == '__main__':
     print("Running method ...")
     # view_numbers_of_ads_each_week(2017, ["Ingeniør- og ikt-fag"], ["Trøndelag"])
-    view_numbers_of_ads_each_week(2018, ["Butikk- og salgsarbeid"], ["Nordland"])
+    # view_numbers_of_ads_each_week(2018, ["Butikk- og salgsarbeid"], ["Nordland"])
     # view_ads_count_from_to(2018, 2020)
     # view_all_struct_col_names(2020)
     # view_all_descript_col_names(2019)
     # view_n_first_descriptions_year(3, 2018)
     # verify_descript_relates_to_struct()
     # delete_empty_descript_rows()
-
+    # plot_word_amount_each_analysis_year(2017)
+    # plot_number_of_ads_hist_all_years()
+    # plot_hist_amount_of_ads_all_industries(2017, region_list=[])
+    # plot_hist_amount_of_ads_all_regions(2017)
