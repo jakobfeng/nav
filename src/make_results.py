@@ -27,28 +27,33 @@ geo_words = get_geo_words()
 # Method for creating results -------------------------------------
 def create_results(industry_list, regions, start, end, classes, path):
     verify_valid_dates(start, end)
+    print("Creating results for {} in {}, from {} to {}...".format(", ".join(industry_list), ", ".join(regions), start, end))
     results_already_exists = check_if_result_already_exists(path)
     if results_already_exists:
         result_df = pd.read_csv(path, sep=",")
+        print("Search is performed previously. File loaded from {}\n".format(path))
     else:
+        print("Starting filtering job...\n".format(path))
         region_list = get_region_list(regions)
         df = get_df_within_interval(start, end)
         df = get_df_filtered_on_industry_and_region(industry_list, region_list, df)
-        max_ads = 500
+        max_ads = 1000
         if len(df) > max_ads:
             df = df.sample(n=max_ads, random_state=1)
+        df = df.reset_index()
         print("Number of ads to classify: {}\n".format(len(df)))
         result_df = pd.DataFrame(
             columns=['Stilling id', 'Registrert dato', 'Yrke grovgruppe', 'Setning', 'Pros. Setning', 'Kategori'])
         model = load_model(1)
         for index, ad in df.iterrows():
-            print("Classify ad no. :" + str(index+1))
+            if index % 50 == 0:
+                print("Classify ad no. :" + str(index+1))
             labeled_ad = classify_ad(model, ad)
             result_df = result_df.append(labeled_ad, ignore_index=True)
         result_df = result_df.sort_values(by=['Kategori'])
         save_df_results_to_file(result_df, industry_list, regions, start, end)
+        print("Labeled results saved to file\t {}\n".format(path))
     result_df = result_df[result_df["Kategori"].isin(classes)]
-    result_df = result_df.sort_values(by=['Kategori'])
     date_format = "%Y-%m-%d"
     result_df['Registrert dato'] = pd.to_datetime(result_df['Registrert dato'], format=date_format)
     return result_df
@@ -229,27 +234,40 @@ def remove_word_from_dictionary(word_count_dict):
 
 
 # Method for plotting specified terms frequency -------------------------------------
-def plot_frequency_word_list(results_df, industries, regions, start, end, classes, word_list, path):
-    results_df = results_df.reset_index()
-    print("Plotting word frequency from {} number of ads\n".format(len(results_df)))
-    frequency_df = get_frequency_df(results_df, start, end, word_list)
+def plot_frequency_word_list(results_df, industries, regions, start, end, classes, word_list):
+    ad_df = results_df.groupby(by=["Stilling id"])
+    print("Plotting word frequency from {} number of ads...".format(len(ad_df)))
+    print("Constituting {} number of lines\n".format(len(results_df)))
+    frequency_df = get_frequency_score_df(results_df, start, end, word_list, industries, regions)
     directory = get_dir_for_plots(industries, regions, start, end)
-    plot_frequency_df(frequency_df, industries, classes, word_list, regions, directory)
+    plot_frequency_df(frequency_df, industries, word_list, regions, directory)
 
 
-def get_frequency_df(df, start, end, word_list):
-    frequency_df = pd.DataFrame(columns=["Week"].extend(word_list))
-    date_list = [start + datetime.timedelta(days=x) for x in range(0, (end-start).days+1)]
-    number_of_weeks = len(date_list)//7
-    for week in range(number_of_weeks):
-        print("Week no. " + str(week))
-        idx = range(week*7, week*7+7)
-        week_dates = [date_list[i] for i in idx]
-        row = {"Week": week, "Date": week_dates[0]}
-        for word in word_list:
-            frequency = get_word_frequency(word, week_dates, df)
-            row[word] = frequency
-        frequency_df = frequency_df.append(row, ignore_index=True)
+def get_frequency_score_df(df, start, end, word_list, industries, regions):
+    directory = "..\\data\\output"
+    freq_out_path = directory + "\\frequency_score_{}_{}_{}_{}_{}.csv".format("_".join(industries), "_".join(regions), "_".join(word_list), start, end)
+    already_calculated = freq_out_path in [str(p) for p in sorted(Path(directory).iterdir())]
+    if already_calculated:
+        frequency_df = pd.read_csv(freq_out_path, sep=",")
+    else:
+        print("Calculating word frequency from DataFrame...")
+        frequency_df = pd.DataFrame(columns=["Week"].extend(word_list))
+        date_list = [start + datetime.timedelta(days=x) for x in range(0, (end-start).days+1)]
+        number_of_weeks = len(date_list)//7
+        for week in range(number_of_weeks):
+            if week % 15 == 0:
+                print("Week no. " + str(week+1))
+            idx = range(week*7, week*7+7)
+            week_dates = [date_list[i] for i in idx]
+            row = {"Week": week, "Date": week_dates[0]}
+            for word in word_list:
+                ad_amount, frequency = get_word_frequency(word, week_dates, df)
+                row[word] = (frequency/(ad_amount+1)) * 1000
+            frequency_df = frequency_df.append(row, ignore_index=True)
+        frequency_df = frequency_df[:-1]
+        frequency_df.to_csv(freq_out_path, sep=",", index=False)
+    date_format = "%Y-%m-%d"
+    frequency_df['Date'] = pd.to_datetime(frequency_df['Date'], format=date_format)
     return frequency_df
 
 
@@ -263,7 +281,7 @@ def get_word_frequency(word, week_dates, df):
         pros_line = row["Pros. Setning"]
         if stemmed_word in pros_line:
             freq += 1
-    return freq
+    return len(subset_df), freq
 
 
 # Method for detecting trends -------------------------------------
@@ -279,7 +297,7 @@ def find_trends_from_df(df, industries, regions, start, end, classes, path):
             if stem_word(word) not in [stem_word(s) for s in word_list]:
                 word_list.append(word)
     print(column_series)
-    frequency_df_weekly = get_frequency_df(df, start, end, word_list)
+    frequency_df_weekly = get_frequency_score_df(df, start, end, word_list)
     trend_df = make_trends_df_based_on_frequency(frequency_df_weekly)
     trending_words = trend_df.columns.tolist()[2:]
     plot_trends_df(trend_df, industries, classes, trending_words, regions)

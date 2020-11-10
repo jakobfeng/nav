@@ -4,6 +4,8 @@ from PIL import Image
 import numpy as np
 import matplotlib as mpl
 from matplotlib.dates import DateFormatter
+import pandas as pd
+import scipy.stats as sp
 
 
 def plot_frq_dict(freq_dict, label, industry_list, regions, start, end, directory):
@@ -32,25 +34,40 @@ def plot_frq_dict(freq_dict, label, industry_list, regions, start, end, director
     plt.close()
 
 
-def plot_frequency_df(frequency_df, industries, classes, word_list, regions, directory):
+def plot_frequency_df(frequency_df, industries, word_list, regions, directory):
+    print("Plotting frequencies for {}...\n".format(", ".join(word_list)))
+    trend_max = []
     for word in word_list:
-        plt.plot(frequency_df["Date"], frequency_df[word], label=word.capitalize())
-    label_to_title_dict = {1: "Task", 2: "Trait", 3: "Req."}
-    classes_part = [label_to_title_dict[k] for k in classes]
-    classes_part = ", ".join(classes_part)
-    if len(classes) == 3:
-        classes_part = "Total"
-    title = classes_part + " freq. for " + ", ".join(industries).lower() + " in " + ", ".join(regions)
-    plt.title(title, pad=14, size=12)
-    plt.legend(loc='upper right', ncol=1, fancybox=True, shadow=True)
-    date_form = DateFormatter("%d.%m.%y")
-    ax = plt.gca()
-    ax.xaxis.set_major_formatter(date_form)
-    plt.xlabel("Date", size=11)
-    plt.ylabel("Frequency", labelpad=8, size=11)
-    print(frequency_df)
+        y = np.array(frequency_df[word].values, dtype=float)
+        x = np.array(pd.to_datetime(frequency_df["Date"].dropna()).index.values, dtype=float)
+        slope, intercept, r_value, p_value, std_err = sp.linregress(x, y)
+        xf = np.linspace(min(x), max(x), len(y))
+        yf = (slope * xf) + intercept
+        trend_max.append(max(yf))
+        plt.plot(xf, yf, label=word.capitalize(), lw=3)
+        plt.scatter(xf, y, marker=".", s=7)
+    # adjust date ticks
+    dates = [d.date() for d in frequency_df["Date"].tolist()]
+    string_dates = [d.strftime("%b %y") for d in dates]
+    plt.xticks(range(len(dates)), string_dates, fontsize=9, rotation=0)
+    plt.locator_params(axis='x', nbins=9)
+    # other
+    first_year = dates[0].year
+    last_year = dates[-1].year
+    if first_year != last_year:
+        year_part = " - {} to {}".format(first_year, last_year)
+    else:
+        year_part = " - {} {} to {} {}".format(dates[0].strftime("%b"), first_year, dates[-1].strftime("%b"), last_year)
+    title = "Word Trend for " + ", ".join(industries).lower() + " in " + ", ".join(regions) + year_part
+    plt.title(title, pad=18)
+    plt.legend(loc='center', bbox_to_anchor=[0.5, 0.99], ncol=max(3, len(word_list)), fancybox=True, shadow=True)
+    plt.xlabel("Date", labelpad=8)
+    plt.ylabel("Frequency Score", labelpad=8)
+    plt.ylim(0, max(trend_max)*1.3)
     path = directory + "_".join(word_list) + ".png"
+    plt.tight_layout()
     plt.savefig(path)
+    plt.show()
     plt.close()
 
 
