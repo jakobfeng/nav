@@ -309,15 +309,16 @@ def plot_hist_amount_of_ads_all_industries(year, region_list):
         df = df.groupby(['Yrke grovgruppe']).size().reset_index(name='counts')
         df.to_csv(result_path, sep=",", index=False)
     div_factor = 1000
-    df["counts"] = [c/div_factor for c in df["counts"].tolist()]
+    df["counts"] = [c / div_factor for c in df["counts"].tolist()]
     plt.bar(df["Yrke grovgruppe"], df["counts"], label=label)
-    xticks = ["Akademia", "Barn", "Butikk", "Bygg", "Helse", "Inudstri", "Ingen data", "Ingeniør", "Primær", "Kontor", "Ledere", "Meglere", "Reise", "Service", "Lærere"]
+    xticks = ["Akademia", "Barn", "Butikk", "Bygg", "Helse", "Inudstri", "Ingen data", "Ingeniør", "Primær", "Kontor",
+              "Ledere", "Meglere", "Reise", "Service", "Lærere"]
     plt.xticks(range(len(df)), xticks, rotation=90)
     plt.title("Number of ads per industry in {}".format(year))
     plt.ylabel("Amount (x {})".format(div_factor), labelpad=8)
     plt.legend(loc="upper right")
-    #for i, v in enumerate(df["counts"].tolist()):
-        #plt.text(i, v+0.03, str(round(v, 1)), color="blue", fontweight='bold', size=8, ha='center')
+    # for i, v in enumerate(df["counts"].tolist()):
+    # plt.text(i, v+0.03, str(round(v, 1)), color="blue", fontweight='bold', size=8, ha='center')
     plt.tight_layout()
     plt.savefig(out_path)
     plt.show()
@@ -353,16 +354,16 @@ def plot_hist_amount_of_ads_all_regions(year):
     plt.barh(df["Arbeidssted fylke"], df["counts"], color="orange")
     plt.title("Number of ads per region in {}".format(year))
     plt.xlabel("Amount (x {})".format(div_factor), labelpad=8)
-    yticks = ["Troms og Finm.", "Nordland", "Trøndelag", "Mør. og Roms.", "Vestland", "Rogaland", "Agder", "Vestf. og Tele.", "Viken", "Oslo", "Innlandet"]
+    yticks = ["Troms og Finm.", "Nordland", "Trøndelag", "Mør. og Roms.", "Vestland", "Rogaland", "Agder",
+              "Vestf. og Tele.", "Viken", "Oslo", "Innlandet"]
     plt.yticks(range(len(df)), yticks)
-    plt.xlim(0, max(df["counts"])*1.1)
+    plt.xlim(0, max(df["counts"]) * 1.1)
     for i, v in enumerate(df["counts"].tolist()):
-        plt.text(v+0.4, i-0.2, str(round(v, 1)), color="orange", fontweight='bold')
+        plt.text(v + 0.4, i - 0.2, str(round(v, 1)), color="orange", fontweight='bold')
     plt.tight_layout()
     out_path = "..\\plots\\exploratory\\ads_per_region_{}.png".format(year)
     plt.savefig(out_path)
     plt.show()
-
 
 
 def get_path_type_year(type, year):

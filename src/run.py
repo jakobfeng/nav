@@ -17,7 +17,7 @@ def make_word_clouds(industry_list, regions, start, end, classes):
 def make_frequency_plot(industry_list, regions, start, end, classes, word_list):
     path = create_path_for_results(industry_list, regions, start, end)
     results_df = create_results(industry_list, regions, start, end, classes, path)
-    plot_frequency_word_list(results_df, industry_list, regions, start, end, classes, word_list, path)
+    plot_frequency_word_list(results_df, industry_list, regions, start, end, classes, word_list)
 
 
 def make_trend_plot(industry_list, regions, year, month, classes, months_lookback):
@@ -45,20 +45,18 @@ def get_regions():
 
 if __name__ == '__main__':
     industries = get_industries()
-
     current_regions = get_regions()
 
     # -----------------------------------------------------------------------
-    industry_ = [9]
+    industry_ = [5]
     region_ = [2]
-    start_date_ = datetime.date(2017, 1, 1)
+    start_date_ = datetime.date(2013, 1, 1)
     end_date_ = datetime.date(2017, 12, 31)
-    classes_ = [1, 2, 3]
-    word_list_ = ["selvstendig", "positiv", "team"]
+    classes_ = [0, 1, 2, 3]
+    word_list_ = ["erfaring", "utdanning"]
     # _______________________________________________________________________
     region_input = [current_regions[i] for i in region_]
-    for i in industries.keys():
-        industry_input = [industries[i]]
-        make_word_clouds(industry_input, region_input, start_date_, end_date_, classes_)
-    # make_frequency_plot(industry_input, region_input, start_date_, end_date_, classes_, word_list_)
+    industry_input = [industries[i] for i in industry_]
+    # make_word_clouds(industry_input, region_input, start_date_, end_date_, classes_)
+    make_frequency_plot(industry_input, region_input, start_date_, end_date_, classes_, word_list_)
     # make_trend_plot(industry_input, region_input, end_date_.year, end_date_.month, classes_, 1)
